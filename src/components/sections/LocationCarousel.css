@@ -36,7 +36,7 @@
   backdrop-filter: blur(12px);
   border-radius: var(--radius-md);
   color: var(--color-text-on-dark);
-  max-width: 400px;
+  max-width: 380px;
 }
 
 .location-carousel__card h3 {
@@ -61,39 +61,20 @@
   font-weight: 600;
 }
 
-.location-carousel__controls {
-  position: absolute;
-  right: 2rem;
-  bottom: 2rem;
-  z-index: 3;
+/* footer: tabs on left, arrows on right — sits BELOW the image */
+.location-carousel__footer {
   display: flex;
-  gap: 0.6rem;
-}
-
-.location-carousel__arrow {
-  width: 2.8rem;
-  height: 2.8rem;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  background: rgba(10, 22, 40, 0.72);
-  color: var(--color-text-on-dark);
-  border-radius: 50%;
-  font-size: 1.15rem;
-  transition: color var(--transition), border-color var(--transition), background var(--transition), transform var(--transition);
-}
-
-.location-carousel__arrow:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-  background: rgba(10, 22, 40, 0.92);
-  transform: translateY(-2px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .location-carousel__tabs {
   display: flex;
   gap: 0.5rem;
-  margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .location-carousel__tab {
@@ -111,20 +92,47 @@
   border-color: var(--color-bg-dark);
 }
 
+.location-carousel__controls {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.location-carousel__arrow {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  border-radius: 50%;
+  font-size: 1.15rem;
+  transition: color var(--transition), border-color var(--transition), background var(--transition), transform var(--transition);
+}
+
+.location-carousel__arrow:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
-  .location-carousel__image { aspect-ratio: 4/3; }
+  .location-carousel__image {
+    aspect-ratio: 4/3;
+  }
+
   .location-carousel__card {
     left: 1rem;
     right: 1rem;
-    bottom: 4.4rem;
-    max-width: none;
-  }
-  .location-carousel__controls {
-    left: 1rem;
-    right: auto;
     bottom: 1rem;
+    max-width: none;
+    padding: 1rem 1.25rem;
   }
-  .location-carousel__tabs {
-    flex-wrap: wrap;
+
+  .location-carousel__footer {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
+

@@ -87,22 +87,24 @@ const LocationCarousel = () => {
               </Motion.div>
             </AnimatePresence>
           </div>
-          <div className="location-carousel__controls" aria-label="Office carousel controls">
-            <button type="button" className="location-carousel__arrow clickable" onClick={() => goToLocation(-1)} data-cursor-label="View" aria-label="Previous office">←</button>
-            <button type="button" className="location-carousel__arrow clickable" onClick={() => goToLocation(1)} data-cursor-label="View" aria-label="Next office">→</button>
-          </div>
-          <div className="location-carousel__tabs">
-            {locations.map((l, i) => (
-              <button
-                key={l.name}
-                type="button"
-                className={`location-carousel__tab clickable ${i === active ? 'is-active' : ''}`}
-                onClick={() => setActive(i)}
-                data-cursor-label="View"
-              >
-                {l.name}
-              </button>
-            ))}
+          <div className="location-carousel__footer">
+            <div className="location-carousel__tabs">
+              {locations.map((l, i) => (
+                <button
+                  key={l.name}
+                  type="button"
+                  className={`location-carousel__tab clickable ${i === active ? 'is-active' : ''}`}
+                  onClick={() => setActive(i)}
+                  data-cursor-label="View"
+                >
+                  {l.name}
+                </button>
+              ))}
+            </div>
+            <div className="location-carousel__controls" aria-label="Office carousel controls">
+              <button type="button" className="location-carousel__arrow clickable" onClick={() => goToLocation(-1)} data-cursor-label="View" aria-label="Previous office">←</button>
+              <button type="button" className="location-carousel__arrow clickable" onClick={() => goToLocation(1)} data-cursor-label="View" aria-label="Next office">→</button>
+            </div>
           </div>
         </div>
       </div>

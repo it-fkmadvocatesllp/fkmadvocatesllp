@@ -9,7 +9,6 @@ import LocationCarousel from '../components/sections/LocationCarousel';
 import TeamCarousel from '../components/sections/TeamCarousel';
 import ContactCTA from '../components/sections/ContactCTA';
 import { firmStats, firmInfo } from '../data/firmStats';
-import { practiceAreas } from '../data/practiceAreas';
 import '../styles/pages/home.css';
 
 const HomePage = () => {
@@ -17,38 +16,33 @@ const HomePage = () => {
 
   return (
     <div ref={containerRef}>
-      <section className="home-hero">
+      <section className="home-hero" data-cursor-theme="dark">
         <HeroScene />
         <div className="home-hero__content">
+          <div className="home-hero__visual" aria-hidden="true" />
           <div className="home-hero__text reveal" data-reveal-delay="0.15">
-            <span className="kicker">FKM Advocates LLP</span>
-            <h1 className="stacked-headline">
-              <span>Counsel</span>
-              <span>you can</span>
-              <span>trust</span>
-            </h1>
+            <div className="home-hero__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img">
+                <path d="M12 3 19 6v5c0 5-3.4 8.6-7 10-3.6-1.4-7-5-7-10V6l7-3Z" fill="currentColor" />
+                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M4 7h16v14H4z" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </div>
+            <span className="home-hero__kicker">Law Office</span>
+            <h1 className="home-hero__title">Expert Legal Solutions</h1>
             <p className="home-hero__subtitle">
-              Tailored legal solutions for businesses, families, and individuals across Kenya and East Africa.
+              We are committed to excellence and have a deep understanding of the law.
+              Our aim is to provide you with real-world solutions across Kenya and East Africa.
             </p>
             <div className="home-hero__actions">
-              <Link to="/consultation" className="btn btn--primary clickable" data-cursor-label="View">Book Consultation</Link>
-              <Link to="/practice-areas" className="btn btn--outline-light clickable" data-cursor-label="View">Practice Areas</Link>
+              <Link to="/consultation" className="btn btn--hero-outline clickable" data-cursor-label="View">
+                Learn More
+              </Link>
+              <Link to="/practice-areas" className="btn btn--hero-ghost clickable" data-cursor-label="View">
+                Practice Areas
+              </Link>
             </div>
           </div>
-          <div className="home-hero__visual" aria-hidden="true" />
         </div>
-        <nav className="home-hero__rail" aria-label="Featured practice areas">
-          {practiceAreas.map((area) => (
-            <Link
-              key={area.slug}
-              to={`/practice-areas/${area.slug}`}
-              className="home-hero__rail-link clickable"
-              data-cursor-label="View"
-            >
-              {area.shortTitle}
-            </Link>
-          ))}
-        </nav>
         <ScrollIndicator />
       </section>
 

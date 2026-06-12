@@ -1,35 +1,12 @@
-import { Suspense, lazy } from 'react';
-import { useIsMobile, usePrefersReducedMotion } from '../../hooks/useMediaQuery';
-import supremecourtImg from '../../assets/supremecourt.jpg';
+import heroBg from '../../assets/giammarco-boscaro-zeH-ljawHtg-unsplash.jpg';
 import './HeroScene.css';
 
-const Scales3D = lazy(() => import('./Scales3D'));
-
-const HeroScene = () => {
-  const isMobile = useIsMobile();
-  const reducedMotion = usePrefersReducedMotion();
-  const show3D = !isMobile && !reducedMotion;
-
-  if (!show3D) {
-    return (
-      <div className="hero-scene hero-scene--fallback">
-        <img src={supremecourtImg} alt="" className="hero-scene__fallback-img" />
-        <div className="hero-scene__overlay" />
-      </div>
-    );
-  }
-
-  return (
-    <div className="hero-scene">
-      <Suspense fallback={
-        <div className="hero-scene hero-scene--fallback">
-          <img src={supremecourtImg} alt="" className="hero-scene__fallback-img" />
-        </div>
-      }>
-        <Scales3D />
-      </Suspense>
-    </div>
-  );
-};
+const HeroScene = () => (
+  <div className="hero-scene">
+    <img src={heroBg} alt="" className="hero-scene__photo" aria-hidden="true" />
+    <div className="hero-scene__overlay" aria-hidden="true" />
+    <div className="hero-scene__grid" aria-hidden="true" />
+  </div>
+);
 
 export default HeroScene;

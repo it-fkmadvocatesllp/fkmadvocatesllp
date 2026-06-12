@@ -11,9 +11,9 @@ const Cursor = () => {
   const springConfig = { damping: 25, stiffness: 250 };
   const cursorX = useSpring(0, springConfig);
   const cursorY = useSpring(0, springConfig);
-  const baseCursorColor = isDarkZone ? '#ffffff' : '#111111';
-  const baseCursorGlow = isDarkZone ? 'rgba(255, 255, 255, 0.9)' : 'rgba(17, 17, 17, 0.45)';
-  const ringBorder = isDarkZone ? 'rgba(255, 255, 255, 0.7)' : 'rgba(17, 17, 17, 0.55)';
+  const baseCursorColor = isDarkZone ? '#c9a227' : '#111111';
+  const baseCursorGlow = isDarkZone ? 'rgba(201, 162, 39, 0.9)' : 'rgba(17, 17, 17, 0.45)';
+  const ringBorder = isDarkZone ? 'rgba(201, 162, 39, 0.7)' : 'rgba(17, 17, 17, 0.55)';
 
   useEffect(() => {
     const updateZoneTheme = (target) => {
@@ -109,7 +109,7 @@ const Cursor = () => {
           height: isHovering ? 72 : 30,
           opacity: isHovering ? 1 : 0.8,
           scale: isClicking ? 0.8 : 1,
-          borderColor: isDarkZone ? '#ffffff' : (isHovering ? 'var(--color-accent)' : ringBorder),
+          borderColor: isDarkZone ? '#c9a227' : (isHovering ? 'var(--color-accent)' : ringBorder),
           boxShadow: isHovering ? '0 0 25px var(--color-accent-glow)' : 'none',
         }}
         transition={{ type: 'spring', damping: 25, stiffness: 250 }}

@@ -34,7 +34,7 @@ const PracticeAreasPage = () => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '240px 1fr', gap: '2rem' }} className="practice-tabs-layout">
+          <div style={{ display: 'grid', gridTemplateColumns: '240px 1fr', gap: '2rem' }} className="practice-tabs-layout reveal">
             <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {practiceAreas.map((area) => (
                 <button

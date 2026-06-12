@@ -16,6 +16,28 @@
   box-shadow: 0 1px 0 var(--color-border);
 }
 
+.site-header:not(.is-scrolled) .site-logo,
+.site-header:not(.is-scrolled) .site-nav__link,
+.site-header:not(.is-scrolled) .mobile-menu-btn span {
+  color: var(--color-text-on-dark);
+}
+
+.site-header:not(.is-scrolled) .site-logo__tagline {
+  color: rgba(248, 250, 252, 0.55);
+}
+
+.site-header:not(.is-scrolled) .header-cta {
+  background: transparent;
+  border: 1px solid rgba(201, 162, 39, 0.55);
+  color: var(--color-text-on-dark);
+}
+
+.site-header:not(.is-scrolled) .header-cta:hover {
+  background: var(--color-accent);
+  color: var(--color-bg-dark);
+  border-color: var(--color-accent);
+}
+
 .site-header__inner {
   display: flex;
   align-items: center;
@@ -298,4 +320,33 @@
   .site-footer__brand p { margin: 1rem auto 0; }
   .site-footer__bottom { justify-content: center; text-align: center; }
   .site-footer__legal { justify-content: center; }
+}
+
+/* Practice Areas page — tab layout responsive */
+@media (max-width: 768px) {
+  .practice-tabs-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .practice-tabs-layout > div:first-child {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    gap: 0.5rem !important;
+  }
+
+  .practice-tabs-layout > div:first-child .btn {
+    flex: 1 1 auto;
+    min-width: 120px;
+    text-align: center !important;
+    justify-content: center !important;
+    font-size: 0.78rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .practice-tabs-layout .glass-card {
+    padding: 1.5rem !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
+  }
 }
