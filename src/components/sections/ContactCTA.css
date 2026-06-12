@@ -1,0 +1,14 @@
+.contact-cta__inner {
+  text-align: center;
+}
+
+.contact-cta__inner .section-subtitle {
+  margin: 0 auto 2.5rem;
+}
+
+.contact-cta__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,140 @@
+.consultation-page {
+  background: var(--color-bg);
+}
+
+.consultation-hero {
+  padding: calc(var(--header-height) + 4rem) 2rem 3rem;
+  text-align: center;
+}
+
+.consultation-hero__inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.consultation-hero .stacked-headline {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  margin-bottom: 1rem;
+}
+
+.consultation-form-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem 6rem;
+}
+
+.consultation-form-card {
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.consultation-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.consultation-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.consultation-form__row--stack {
+  grid-template-columns: 1fr;
+}
+
+.consultation-form__field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.consultation-form__field input,
+.consultation-form__field select,
+.consultation-form__field textarea {
+  width: 100%;
+  padding: 1rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color var(--transition);
+}
+
+.consultation-form__field input:focus,
+.consultation-form__field select:focus,
+.consultation-form__field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.consultation-form__submit {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.consultation-form__error {
+  color: #ef4444;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.consultation-success {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.consultation-success__icon {
+  font-size: 3rem;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+}
+
+.consultation-success h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.consultation-success p {
+  color: var(--color-text-secondary);
+}
+
+.consultation-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.consultation-features--stack {
+  grid-template-columns: 1fr;
+}
+
+.consultation-features__item {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.consultation-features__item h4 {
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.consultation-features__item p {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .practice-tabs-layout {
+    grid-template-columns: 1fr !important;
+  }
+}

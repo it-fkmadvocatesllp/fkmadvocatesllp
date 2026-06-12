@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useSpring } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { motion as Motion, useSpring } from 'framer-motion';
 
 const Cursor = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const [isDarkZone, setIsDarkZone] = useState(false);
+  const [cursorLabel, setCursorLabel] = useState('');
 
   const springConfig = { damping: 25, stiffness: 250 };
   const cursorX = useSpring(0, springConfig);
@@ -16,7 +17,7 @@ const Cursor = () => {
 
   useEffect(() => {
     const updateZoneTheme = (target) => {
-      if (target && target.closest && target.closest('[data-cursor-theme="dark"]')) {
+      if (target?.closest?.('[data-cursor-theme="dark"]')) {
         setIsDarkZone(true);
       } else {
         setIsDarkZone(false);
@@ -32,6 +33,7 @@ const Cursor = () => {
 
     const handleHover = (e) => {
       const target = e.target;
+      const labelledTarget = target.closest?.('[data-cursor-label]');
       updateZoneTheme(target);
       if (
         target.tagName === 'A' ||
@@ -41,11 +43,14 @@ const Cursor = () => {
         target.tagName === 'TEXTAREA' ||
         target.closest('a') ||
         target.closest('button') ||
-        target.classList.contains('clickable')
+        target.classList.contains('clickable') ||
+        labelledTarget
       ) {
         setIsHovering(true);
+        setCursorLabel(labelledTarget?.dataset.cursorLabel || 'View');
       } else {
         setIsHovering(false);
+        setCursorLabel('');
       }
     };
 
@@ -71,21 +76,20 @@ const Cursor = () => {
     };
   }, [cursorX, cursorY, isVisible]);
 
-  if (typeof window !== 'undefined' && window.innerWidth < 1024) return null;
-
   return (
-    <div style={{ 
-      position: 'fixed', 
-      top: 0, 
-      left: 0, 
-      width: '100%', 
-      height: '100%', 
-      pointerEvents: 'none', 
-      zIndex: 2147483647,
-      display: isVisible ? 'block' : 'none'
-    }}>
-      {/* Base glowing dot */}
-      <motion.div
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
+        zIndex: 2147483647,
+        display: isVisible ? 'block' : 'none',
+      }}
+    >
+      <Motion.div
         style={{
           position: 'absolute',
           width: 8,
@@ -99,15 +103,14 @@ const Cursor = () => {
           boxShadow: `0 0 15px ${baseCursorGlow}`,
         }}
       />
-      {/* Outer ring */}
-      <motion.div
+      <Motion.div
         animate={{
-          width: isHovering ? 60 : 30,
-          height: isHovering ? 60 : 30,
+          width: isHovering ? 72 : 30,
+          height: isHovering ? 72 : 30,
           opacity: isHovering ? 1 : 0.8,
           scale: isClicking ? 0.8 : 1,
-          borderColor: isDarkZone ? '#ffffff' : (isHovering ? '#9c27b0' : ringBorder),
-          boxShadow: isHovering ? '0 0 25px rgba(156, 39, 176, 0.8)' : 'none',
+          borderColor: isDarkZone ? '#ffffff' : (isHovering ? 'var(--color-accent)' : ringBorder),
+          boxShadow: isHovering ? '0 0 25px var(--color-accent-glow)' : 'none',
         }}
         transition={{ type: 'spring', damping: 25, stiffness: 250 }}
         style={{
@@ -118,8 +121,17 @@ const Cursor = () => {
           y: cursorY,
           translateX: '-50%',
           translateY: '-50%',
+          display: 'grid',
+          placeItems: 'center',
+          color: isDarkZone ? '#ffffff' : 'var(--color-text)',
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: '0.12em',
+          textTransform: 'uppercase',
         }}
-      />
+      >
+        {isHovering && cursorLabel}
+      </Motion.div>
     </div>
   );
 };

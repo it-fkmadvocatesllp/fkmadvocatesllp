@@ -1,0 +1,38 @@
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-scene--fallback {
+  background: var(--color-bg-dark);
+}
+
+.hero-scene__fallback-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+.hero-scene__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.3) 0%,
+    rgba(10, 22, 40, 0.6) 100%
+  );
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.hero-scene canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
