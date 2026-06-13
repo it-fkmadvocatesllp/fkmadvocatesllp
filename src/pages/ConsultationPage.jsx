@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion as Motion } from 'framer-motion';
 import { useMediaQuery } from '../hooks/useMediaQuery';
+import SEO from '../components/SEO';
 import './ConsultationPage.css';
 
 const ConsultationPage = () => {
@@ -109,6 +110,11 @@ const ConsultationPage = () => {
 
   return (
     <div className="consultation-page">
+      <SEO
+        title="Book a Legal Consultation in Nairobi"
+        description="Schedule a confidential legal consultation with FKM Advocates LLP. Our expert advocates in Nairobi are ready to advise on corporate law, litigation, estate planning, and real estate matters."
+        canonical="/consultation"
+      />
       <section className="consultation-hero">
         <Motion.div
           initial={{ opacity: 0, y: 20 }}

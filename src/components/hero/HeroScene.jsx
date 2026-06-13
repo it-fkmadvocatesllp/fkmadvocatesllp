@@ -1,4 +1,4 @@
-import heroBg from '../../assets/giammarco-boscaro-zeH-ljawHtg-unsplash.jpg';
+import heroBg from '../../assets/hero-bg.webp';
 import './HeroScene.css';
 
 const HeroScene = () => (

@@ -1,25 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { navItems } from '../../data/navigation';
+import { useScrolled } from '../../hooks/useScrolled';
 
-const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
+const Header = ({ isHome = false }) => {
+  const scrolled = useScrolled(40);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [expandedItem, setExpandedItem] = useState(null);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setExpandedItem(null);
+  };
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [menuOpen]);
+  const toggleExpanded = (label) =>
+    setExpandedItem((prev) => (prev === label ? null : label));
 
   return (
     <>
-      <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
+      <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${isHome ? 'is-home' : ''}`}>
         <div className="site-header__inner">
           <Link to="/" className="site-logo clickable" aria-label="FKM Advocates LLP home">
             <span className="site-logo__mark">FKM</span>
@@ -74,7 +73,7 @@ const Header = () => {
 
           <button
             type="button"
-            className={`mobile-menu-btn ${menuOpen ? 'is-open' : ''}`}
+            className={`mobile-menu-btn ${menuOpen ? 'is-open' : ''} ${isHome && !scrolled ? 'is-light' : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
@@ -91,34 +90,57 @@ const Header = () => {
       >
         {navItems.map((item) => (
           <div key={item.label}>
-            <Link
-              to={item.to}
-              className="mobile-menu__link clickable"
-              onClick={() => setMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-            {item.children && (
-              <div className="mobile-menu__sub">
-                {item.children.map((child) => (
-                  <Link
-                    key={child.to}
-                    to={child.to}
-                    className="mobile-menu__link clickable"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {child.label}
-                  </Link>
-                ))}
-              </div>
+            {item.children ? (
+              <>
+                <button
+                  type="button"
+                  className="mobile-menu__link mobile-menu__accordion-btn clickable"
+                  onClick={() => toggleExpanded(item.label)}
+                  aria-expanded={expandedItem === item.label}
+                >
+                  {item.label}
+                  <span className={`mobile-menu__chevron ${expandedItem === item.label ? 'is-open' : ''}`}>
+                    ▼
+                  </span>
+                </button>
+                {expandedItem === item.label && (
+                  <div className="mobile-menu__sub">
+                    <Link
+                      to={item.to}
+                      className="mobile-menu__link mobile-menu__sub-link clickable"
+                      onClick={closeMenu}
+                    >
+                      All Practice Areas
+                    </Link>
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.to}
+                        to={child.to}
+                        className="mobile-menu__link mobile-menu__sub-link clickable"
+                        onClick={closeMenu}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <Link
+                to={item.to}
+                className="mobile-menu__link clickable"
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
             )}
           </div>
         ))}
         <Link
           to="/consultation"
           className="btn btn--primary clickable"
-          style={{ marginTop: '2rem', width: '100%' }}
-          onClick={() => setMenuOpen(false)}
+          style={{ marginTop: '2rem', width: '100%', textAlign: 'center' }}
+          onClick={closeMenu}
         >
           Book Consultation
         </Link>

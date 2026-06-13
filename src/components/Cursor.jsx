@@ -6,7 +6,6 @@ const Cursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const [isDarkZone, setIsDarkZone] = useState(false);
-  const [cursorLabel, setCursorLabel] = useState('');
 
   const springConfig = { damping: 25, stiffness: 250 };
   const cursorX = useSpring(0, springConfig);
@@ -17,11 +16,7 @@ const Cursor = () => {
 
   useEffect(() => {
     const updateZoneTheme = (target) => {
-      if (target?.closest?.('[data-cursor-theme="dark"]')) {
-        setIsDarkZone(true);
-      } else {
-        setIsDarkZone(false);
-      }
+      setIsDarkZone(!!target?.closest?.('[data-cursor-theme="dark"]'));
     };
 
     const mouseMove = (e) => {
@@ -33,9 +28,8 @@ const Cursor = () => {
 
     const handleHover = (e) => {
       const target = e.target;
-      const labelledTarget = target.closest?.('[data-cursor-label]');
       updateZoneTheme(target);
-      if (
+      const isInteractive =
         target.tagName === 'A' ||
         target.tagName === 'BUTTON' ||
         target.tagName === 'SELECT' ||
@@ -43,15 +37,8 @@ const Cursor = () => {
         target.tagName === 'TEXTAREA' ||
         target.closest('a') ||
         target.closest('button') ||
-        target.classList.contains('clickable') ||
-        labelledTarget
-      ) {
-        setIsHovering(true);
-        setCursorLabel(labelledTarget?.dataset.cursorLabel || 'View');
-      } else {
-        setIsHovering(false);
-        setCursorLabel('');
-      }
+        target.classList.contains('clickable');
+      setIsHovering(isInteractive);
     };
 
     const handleMouseDown = () => setIsClicking(true);
@@ -105,8 +92,8 @@ const Cursor = () => {
       />
       <Motion.div
         animate={{
-          width: isHovering ? 72 : 30,
-          height: isHovering ? 72 : 30,
+          width: isHovering ? 48 : 30,
+          height: isHovering ? 48 : 30,
           opacity: isHovering ? 1 : 0.8,
           scale: isClicking ? 0.8 : 1,
           borderColor: isDarkZone ? '#c9a227' : (isHovering ? 'var(--color-accent)' : ringBorder),
@@ -121,17 +108,8 @@ const Cursor = () => {
           y: cursorY,
           translateX: '-50%',
           translateY: '-50%',
-          display: 'grid',
-          placeItems: 'center',
-          color: isDarkZone ? '#ffffff' : 'var(--color-text)',
-          fontSize: 11,
-          fontWeight: 700,
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
         }}
-      >
-        {isHovering && cursorLabel}
-      </Motion.div>
+      />
     </div>
   );
 };

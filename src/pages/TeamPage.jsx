@@ -3,6 +3,7 @@ import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import FilterBar from '../components/ui/FilterBar';
 import { teamMembers, teamFilters } from '../data/team';
+import SEO from '../components/SEO';
 
 const TeamPage = () => {
   const [filters, setFilters] = useState({ strategy: '', role: '', office: '' });
@@ -17,6 +18,11 @@ const TeamPage = () => {
 
   return (
     <div ref={containerRef}>
+      <SEO
+        title="Our Legal Team | Advocates & Counsel in Nairobi"
+        description="Meet the experienced advocates and legal counsel at FKM Advocates LLP. Our team brings deep expertise across corporate law, litigation, estate planning, and real estate in Kenya."
+        canonical="/team"
+      />
       <section className="page-hero">
         <div className="container reveal">
           <span className="kicker">Our Team</span>

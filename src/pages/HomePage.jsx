@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import HeroScene from '../components/hero/HeroScene';
 import ScrollIndicator from '../components/hero/ScrollIndicator';
@@ -16,6 +17,11 @@ const HomePage = () => {
 
   return (
     <div ref={containerRef}>
+      <SEO
+        title="Nairobi Law Firm | Expert Legal Services in Kenya & East Africa"
+        description="FKM Advocates LLP is a premier Nairobi law firm offering corporate law, litigation, estate planning, and real estate legal services. 10+ years serving clients across Kenya and East Africa."
+        canonical="/"
+      />
       <section className="home-hero" data-cursor-theme="dark">
         <HeroScene />
         <div className="home-hero__content">

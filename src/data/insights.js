@@ -7,6 +7,7 @@ export const insights = [
     category: 'Articles',
     readTime: '8 min',
     date: '2025-03-15',
+    author: 'FKM Advocates LLP',
     excerpt:
       'An overview of evolving corporate governance standards and regulatory expectations for Kenyan businesses.',
     content: `
@@ -27,6 +28,7 @@ export const insights = [
     category: 'Articles',
     readTime: '10 min',
     date: '2025-02-20',
+    author: 'FKM Advocates LLP',
     excerpt:
       'Strategic approaches to wealth preservation and succession planning for Kenyan families.',
     content: `
@@ -40,6 +42,7 @@ export const insights = [
     category: 'Press',
     readTime: '5 min',
     date: '2025-01-10',
+    author: 'FKM Advocates LLP',
     excerpt:
       'FKM Advocates LLP announces expansion of its Thika branch to serve growing client demand in the region.',
     content: `
@@ -52,6 +55,7 @@ export const insights = [
     category: 'Legal Updates',
     readTime: '12 min',
     date: '2024-11-05',
+    author: 'FKM Advocates LLP',
     excerpt:
       'Key changes affecting property transactions and title registration in Kenya.',
     content: `

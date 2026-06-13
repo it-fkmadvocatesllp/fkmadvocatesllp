@@ -1,6 +1,7 @@
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { getPracticeAreaBySlug, practiceAreas } from '../data/practiceAreas';
+import SEO from '../components/SEO';
 
 const PracticeAreaDetailPage = () => {
   const { slug } = useParams();
@@ -13,6 +14,11 @@ const PracticeAreaDetailPage = () => {
 
   return (
     <div ref={containerRef}>
+      <SEO
+        title={`${area.title} Lawyers in Nairobi, Kenya`}
+        description={`${area.description} FKM Advocates LLP delivers expert ${area.title} legal services in Nairobi and across Kenya.`}
+        canonical={`/practice-areas/${area.slug}`}
+      />
       <section className="page-hero">
         <div className="container reveal">
           <span className="kicker">Practice Area</span>

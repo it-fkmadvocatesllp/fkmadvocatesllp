@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { insights, insightCategories } from '../data/insights';
+import SEO from '../components/SEO';
 
 const InsightsPage = () => {
   const [category, setCategory] = useState('');
@@ -13,6 +14,11 @@ const InsightsPage = () => {
 
   return (
     <div ref={containerRef}>
+      <SEO
+        title="Legal Insights | Articles & Updates from Nairobi"
+        description="Read legal articles, press releases, and regulatory updates from FKM Advocates LLP. Stay informed on Kenyan law covering corporate governance, property, estate planning, and more."
+        canonical="/insights"
+      />
       <section className="page-hero">
         <div className="container reveal">
           <span className="kicker">Insights</span>

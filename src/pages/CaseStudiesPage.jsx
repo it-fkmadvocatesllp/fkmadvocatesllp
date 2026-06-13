@@ -3,6 +3,7 @@ import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import FilterBar from '../components/ui/FilterBar';
 import { caseStudies, caseStudyFilters } from '../data/caseStudies';
+import SEO from '../components/SEO';
 
 const CaseStudiesPage = () => {
   const [filters, setFilters] = useState({ strategy: '', status: '', geography: '' });
@@ -17,6 +18,11 @@ const CaseStudiesPage = () => {
 
   return (
     <div ref={containerRef}>
+      <SEO
+        title="Case Studies | Notable Legal Matters in Kenya"
+        description="Explore notable matters handled by FKM Advocates LLP across corporate law, litigation, estate planning, and real estate in Kenya. See how we deliver results for our clients."
+        canonical="/case-studies"
+      />
       <section className="page-hero">
         <div className="container reveal">
           <span className="kicker">Case Studies</span>

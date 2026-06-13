@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import SEO from '../components/SEO';
 import { AnimatePresence, motion as Motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { practiceAreas } from '../data/practiceAreas';
@@ -11,6 +12,11 @@ const PracticeAreasPage = () => {
 
   return (
     <div ref={containerRef}>
+      <SEO
+        title="Practice Areas | Corporate, Litigation, Estate & Real Estate Law"
+        description="FKM Advocates LLP offers specialised legal services across four practice areas: Corporate & Commercial, Litigation & Dispute Resolution, Estate & Probate, and Real Estate & Conveyancing in Kenya."
+        canonical="/practice-areas"
+      />
       <section className="page-hero">
         <div className="container reveal">
           <span className="kicker">Practice Areas</span>

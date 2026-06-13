@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import Timeline from '../components/sections/Timeline';
 import ValuesGrid from '../components/sections/ValuesGrid';
@@ -9,6 +10,11 @@ const AboutPage = () => {
 
   return (
     <div ref={containerRef}>
+      <SEO
+        title="About Us | Our Story & Values"
+        description="Founded in 2014, FKM Advocates LLP has grown into a trusted legal partner across Kenya. Learn about our history, values, and commitment to ethical legal practice in Nairobi and beyond."
+        canonical="/about"
+      />
       <section className="page-hero">
         <div className="container reveal">
           <span className="kicker">About Us</span>
