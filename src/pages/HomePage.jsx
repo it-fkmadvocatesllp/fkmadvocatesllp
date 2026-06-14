@@ -40,7 +40,7 @@ const HomePage = () => {
               Our aim is to provide you with real-world solutions across Kenya and East Africa.
             </p>
             <div className="home-hero__actions">
-              <Link to="/consultation" className="btn btn--hero-outline clickable" data-cursor-label="View">
+              <Link to="/about" className="btn btn--hero-outline clickable" data-cursor-label="View">
                 Learn More
               </Link>
               <Link to="/practice-areas" className="btn btn--hero-ghost clickable" data-cursor-label="View">

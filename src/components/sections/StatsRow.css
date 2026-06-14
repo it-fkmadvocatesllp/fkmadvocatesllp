@@ -19,13 +19,13 @@
   display: block;
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--color-accent);
+  color: var(--color-purple);
   line-height: 1;
   margin-bottom: 0.5rem;
 }
 
 .stats-row--dark .stats-row__value {
-  color: var(--color-accent);
+  color: var(--color-purple-light);
 }
 
 .stats-row__label {

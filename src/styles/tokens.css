@@ -11,6 +11,14 @@
   --color-accent: #c9a227;
   --color-accent-deep: #8b6914;
   --color-accent-glow: rgba(201, 162, 39, 0.35);
+
+  --color-purple: #6b3fa0;
+  --color-purple-deep: #4e2d7a;
+  --color-purple-light: #f3f0f8;
+  --color-purple-glow: rgba(107, 63, 160, 0.25);
+  --color-grey-tinted: #7c6f8e;
+  --color-grey-surface: #f3f1f7;
+
   --color-border: rgba(0, 0, 0, 0.08);
   --color-border-dark: rgba(255, 255, 255, 0.12);
   --glass-bg: rgba(255, 255, 255, 0.75);

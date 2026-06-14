@@ -8,11 +8,10 @@ const Footer = () => (
       <div className="site-footer__grid">
         <div className="site-footer__brand">
           <Link to="/" className="site-logo clickable">
-            <span className="site-logo__mark">FKM</span>
+            <span className="site-logo__fkm">FKM</span>
+            <span className="site-logo__divider" aria-hidden="true" />
             <span className="site-logo__text">
-              <span className="site-logo__name" style={{ color: 'var(--color-text-on-dark)' }}>
-                {firmInfo.name}
-              </span>
+              <span className="site-logo__name">Advocates LLP</span>
               <span className="site-logo__tagline">{firmInfo.tagline}</span>
             </span>
           </Link>

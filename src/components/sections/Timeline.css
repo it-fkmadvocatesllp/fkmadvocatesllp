@@ -15,15 +15,15 @@
 }
 
 .timeline__year.is-active {
-  background: var(--color-bg-dark);
-  color: var(--color-text-on-dark);
-  border-color: var(--color-bg-dark);
+  background: var(--color-purple);
+  color: #ffffff;
+  border-color: var(--color-purple);
 }
 
 .timeline__year-display {
   font-family: var(--font-display);
   font-size: 3rem;
-  color: var(--color-accent);
+  color: var(--color-purple);
   display: block;
   margin-bottom: 0.5rem;
 }

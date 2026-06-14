@@ -21,7 +21,8 @@ const Header = ({ isHome = false }) => {
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${isHome ? 'is-home' : ''}`}>
         <div className="site-header__inner">
           <Link to="/" className="site-logo clickable" aria-label="FKM Advocates LLP home">
-            <span className="site-logo__mark">FKM</span>
+            <span className="site-logo__fkm">FKM</span>
+            <span className="site-logo__divider" aria-hidden="true" />
             <span className="site-logo__text">
               <span className="site-logo__name">Advocates LLP</span>
               <span className="site-logo__tagline">Legal Excellence</span>

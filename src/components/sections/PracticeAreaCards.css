@@ -14,9 +14,9 @@
 }
 
 .practice-cards__card:hover {
-  border-color: var(--color-accent);
+  border-color: var(--color-purple);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 40px var(--color-purple-glow);
 }
 
 .practice-cards__title {
@@ -55,7 +55,7 @@
 .practice-cards__link {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-purple);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
