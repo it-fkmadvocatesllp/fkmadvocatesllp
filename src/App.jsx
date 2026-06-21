@@ -10,12 +10,14 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const PracticeAreasPage = lazy(() => import('./pages/PracticeAreasPage'));
 const PracticeAreaDetailPage = lazy(() => import('./pages/PracticeAreaDetailPage'));
-const CaseStudiesPage = lazy(() => import('./pages/CaseStudiesPage'));
+const OurProcessPage = lazy(() => import('./pages/CaseStudiesPage'));
 const TeamPage = lazy(() => import('./pages/TeamPage'));
 const InsightsPage = lazy(() => import('./pages/InsightsPage'));
 const InsightDetailPage = lazy(() => import('./pages/InsightDetailPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const ConsultationPage = lazy(() => import('./pages/ConsultationPage'));
+const TeamMemberPage = lazy(() => import('./pages/TeamMemberPage'));
+const CareersPage = lazy(() => import('./pages/CareersPage'));
 const LegalPage = lazy(() => import('./pages/LegalPage'));
 
 const PageLoader = () => (
@@ -34,12 +36,14 @@ const AppRoutes = () => {
         <Route path="/about" element={<Suspense fallback={<PageLoader />}><AboutPage /></Suspense>} />
         <Route path="/practice-areas" element={<Suspense fallback={<PageLoader />}><PracticeAreasPage /></Suspense>} />
         <Route path="/practice-areas/:slug" element={<Suspense fallback={<PageLoader />}><PracticeAreaDetailPage /></Suspense>} />
-        <Route path="/case-studies" element={<Suspense fallback={<PageLoader />}><CaseStudiesPage /></Suspense>} />
+        <Route path="/our-process" element={<Suspense fallback={<PageLoader />}><OurProcessPage /></Suspense>} />
         <Route path="/team" element={<Suspense fallback={<PageLoader />}><TeamPage /></Suspense>} />
+        <Route path="/team/:slug" element={<Suspense fallback={<PageLoader />}><TeamMemberPage /></Suspense>} />
         <Route path="/insights" element={<Suspense fallback={<PageLoader />}><InsightsPage /></Suspense>} />
         <Route path="/insights/:slug" element={<Suspense fallback={<PageLoader />}><InsightDetailPage /></Suspense>} />
         <Route path="/contact" element={<Suspense fallback={<PageLoader />}><ContactPage /></Suspense>} />
         <Route path="/consultation" element={<Suspense fallback={<PageLoader />}><ConsultationPage /></Suspense>} />
+        <Route path="/careers" element={<Suspense fallback={<PageLoader />}><CareersPage /></Suspense>} />
         <Route path="/privacy" element={<Suspense fallback={<PageLoader />}><LegalPage /></Suspense>} />
         <Route path="/legal" element={<Suspense fallback={<PageLoader />}><LegalPage /></Suspense>} />
         <Route path="/cookies" element={<Suspense fallback={<PageLoader />}><LegalPage /></Suspense>} />

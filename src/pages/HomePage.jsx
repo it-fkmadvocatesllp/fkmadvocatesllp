@@ -1,19 +1,35 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import SEO from '../components/SEO';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import HeroScene from '../components/hero/HeroScene';
-import ScrollIndicator from '../components/hero/ScrollIndicator';
-import StatsRow from '../components/sections/StatsRow';
-import PracticeAreaCards from '../components/sections/PracticeAreaCards';
-import RegionalReach from '../components/sections/RegionalReach';
-import LocationCarousel from '../components/sections/LocationCarousel';
-import TeamCarousel from '../components/sections/TeamCarousel';
+// import StatsRow from '../components/sections/StatsRow';
+// import PracticeAreaCards from '../components/sections/PracticeAreaCards';
+// import RegionalReach from '../components/sections/RegionalReach';
+// import LocationCarousel from '../components/sections/LocationCarousel';
+// import TeamCarousel from '../components/sections/TeamCarousel';
 import ContactCTA from '../components/sections/ContactCTA';
-import { firmStats, firmInfo } from '../data/firmStats';
+// import { firmStats, firmInfo } from '../data/firmStats';
 import '../styles/pages/home.css';
+
+const faqs = [
+  {
+    q: 'Do I need an appointment?',
+    a: 'While appointments are recommended, we accommodate urgent consultations whenever possible.',
+  },
+  {
+    q: 'How much does a consultation cost?',
+    a: 'Consultation fees vary depending on the complexity of the matter. Contact us for details.',
+  },
+  {
+    q: 'Can disputes be resolved without going to court?',
+    a: 'Many disputes can be resolved through negotiation, mediation, or arbitration, which may save time and costs.',
+  },
+];
 
 const HomePage = () => {
   const containerRef = useScrollReveal('.reveal');
+  const [openFaq, setOpenFaq] = useState(null);
 
   return (
     <div ref={containerRef}>
@@ -34,46 +50,77 @@ const HomePage = () => {
               </svg>
             </div>
             <span className="home-hero__kicker">Law Office</span>
-            <h1 className="home-hero__title">Expert Legal Solutions</h1>
+            <h1 className="home-hero__title">Strategic Legal Representation for Individuals, Businesses, and Institutions Across Kenya</h1>
             <p className="home-hero__subtitle">
-              We are committed to excellence and have a deep understanding of the law.
-              Our aim is to provide you with real-world solutions across Kenya and East Africa.
+              FKM Advocates LLP provides practical, results-oriented legal solutions in litigation, employment law, commercial transactions, family law, property law, and dispute resolution. Our advocates combine legal expertise with a client-focused approach to protect your interests and achieve favorable outcomes.
             </p>
             <div className="home-hero__actions">
-              <Link to="/about" className="btn btn--hero-outline clickable" data-cursor-label="View">
-                Learn More
+              <Link to="/consultation" className="btn btn--hero-outline clickable" data-cursor-label="View">
+                Book a Consultation
               </Link>
               <Link to="/practice-areas" className="btn btn--hero-ghost clickable" data-cursor-label="View">
-                Practice Areas
+                Explore Our Practice Areas
               </Link>
             </div>
           </div>
         </div>
-        <ScrollIndicator />
       </section>
 
-      <section className="section about-preview">
+      <section className="section why-fkm">
         <div className="container">
-          <div className="about-preview__grid">
-            <div className="reveal">
-              <span className="kicker">About FKM</span>
-              <h2 className="section-title">A Nairobi law firm focused on driving client success</h2>
+          <div className="why-fkm__inner reveal">
+            <div className="why-fkm__intro">
+              <span className="kicker">Our Difference</span>
+              <h2 className="section-title">Why Clients Choose FKM Advocates LLP</h2>
               <p className="section-subtitle">
-                {firmInfo.description}
+                At FKM Advocates LLP, we understand that legal challenges often involve significant financial, personal,
+                and business interests. Our approach combines technical legal excellence with clear communication,
+                strategic thinking, and dedicated client service.
               </p>
-              <Link to="/about" className="about-preview__link clickable">
-                Discover our history →
-              </Link>
             </div>
-            <StatsRow stats={firmStats} />
+            <div className="why-fkm__points">
+              <p className="why-fkm__points-heading">What Sets Us Apart</p>
+              <ul className="why-fkm__list">
+                <li>Personalized legal strategies tailored to your circumstances</li>
+                <li>Prompt and transparent communication</li>
+                <li>Practical solutions focused on achieving results</li>
+                <li>Strong advocacy in negotiations and court proceedings</li>
+                <li>Commitment to professionalism, integrity, and confidentiality</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <PracticeAreaCards />
-      <RegionalReach />
-      <LocationCarousel />
-      <TeamCarousel />
+      <section className="section faq-section">
+        <div className="container">
+          <div className="faq-section__inner reveal">
+            <div className="faq-section__heading">
+              <span className="kicker">FAQ</span>
+              <h2 className="section-title">Frequently Asked Questions</h2>
+            </div>
+            <ul className="faq-list">
+              {faqs.map((item, i) => (
+                <li key={i} className={`faq-item ${openFaq === i ? 'is-open' : ''}`}>
+                  <button
+                    type="button"
+                    className="faq-item__question clickable"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    aria-expanded={openFaq === i}
+                  >
+                    <span>{item.q}</span>
+                    <span className="faq-item__icon" aria-hidden="true">{openFaq === i ? '−' : '+'}</span>
+                  </button>
+                  {openFaq === i && (
+                    <p className="faq-item__answer">{item.a}</p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <ContactCTA />
     </div>
   );

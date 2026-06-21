@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState, useMemo } from 'react';
 import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -50,7 +51,7 @@ const TeamPage = () => {
               {filtered.map((member) => (
                 <Motion.article
                   key={member.id}
-                  className="glass-card reveal clickable"
+                  className="glass-card reveal"
                   style={{ padding: '2rem', textAlign: 'center' }}
                   layout
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -62,7 +63,12 @@ const TeamPage = () => {
                   </div>
                   <h3 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>{member.name}</h3>
                   <p style={{ color: 'var(--color-accent)', fontSize: '0.85rem', marginBottom: '0.5rem' }}>{member.title}</p>
-                  <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>{member.office}</p>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginBottom: '1.25rem' }}>{member.office}</p>
+                  {member.slug && (
+                    <Link to={`/team/${member.slug}`} className="btn btn--outline clickable" style={{ fontSize: '0.78rem', padding: '0.6rem 1.25rem' }}>
+                      See More
+                    </Link>
+                  )}
                 </Motion.article>
               ))}
             </AnimatePresence>

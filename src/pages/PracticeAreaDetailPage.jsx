@@ -32,21 +32,6 @@ const PracticeAreaDetailPage = () => {
 
       <section className="section">
         <div className="container">
-          <div className="reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginBottom: '3rem' }}>
-            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <strong style={{ fontSize: '1.5rem', color: 'var(--color-accent)' }}>{area.metrics.matters}</strong>
-              <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>Matters Handled</p>
-            </div>
-            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <strong style={{ fontSize: '1.5rem', color: 'var(--color-accent)' }}>{area.metrics.ticket}</strong>
-              <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>Client Scope</p>
-            </div>
-            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center' }}>
-              <strong style={{ fontSize: '1.5rem', color: 'var(--color-accent)' }}>{area.metrics.team}</strong>
-              <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>Team Members</p>
-            </div>
-          </div>
-
           <div className="reveal">
             <h2 className="section-title">Our Approach</h2>
             <p className="section-subtitle" style={{ marginBottom: '2rem' }}>{area.approach}</p>

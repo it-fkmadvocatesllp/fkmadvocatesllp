@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import Timeline from '../components/sections/Timeline';
+// import Timeline from '../components/sections/Timeline';
 import ValuesGrid from '../components/sections/ValuesGrid';
-import { timeline, values } from '../data/about';
+import { values } from '../data/about';
 
 const AboutPage = () => {
   const containerRef = useScrollReveal('.reveal');
@@ -12,7 +12,7 @@ const AboutPage = () => {
     <div ref={containerRef}>
       <SEO
         title="About Us | Our Story & Values"
-        description="Founded in 2014, FKM Advocates LLP has grown into a trusted legal partner across Kenya. Learn about our history, values, and commitment to ethical legal practice in Nairobi and beyond."
+        description="FKM Advocates LLP is a Kenyan law firm dedicated to delivering high-quality legal services to individuals, businesses, institutions, and investors across Kenya."
         canonical="/about"
       />
       <section className="page-hero">
@@ -23,14 +23,24 @@ const AboutPage = () => {
             <span>so far</span>
           </h1>
           <p className="section-subtitle" style={{ margin: '1.5rem auto 0' }}>
-            Founded in 2014, FKM Advocates LLP has grown into a trusted legal partner for clients across Kenya.
+            FKM Advocates LLP — a trusted legal partner for clients across Kenya.
           </p>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <Timeline events={timeline} />
+          <div className="reveal" style={{ maxWidth: '760px' }}>
+            <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.85, fontSize: '1.05rem', marginBottom: '1.5rem' }}>
+              FKM Advocates LLP is a Kenyan law firm dedicated to delivering high-quality legal services to individuals,
+              businesses, institutions, and investors. We combine legal expertise, strategic thinking, and a deep
+              understanding of our clients&apos; objectives to provide solutions that are practical, effective, and results-driven.
+            </p>
+            <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.85, fontSize: '1.05rem' }}>
+              Our advocates are committed to upholding the highest standards of professionalism, confidentiality, and
+              integrity while helping clients navigate complex legal challenges with confidence.
+            </p>
+          </div>
         </div>
       </section>
 

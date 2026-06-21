@@ -1,17 +1,19 @@
 export const practiceAreaLinks = [
-  { label: 'Corporate & Commercial', to: '/practice-areas/corporate-commercial' },
-  { label: 'Estate & Probate', to: '/practice-areas/estate-probate' },
-  { label: 'Litigation', to: '/practice-areas/litigation' },
-  { label: 'Real Estate', to: '/practice-areas/real-estate' },
+  { label: 'Commercial & Corporate Law', to: '/practice-areas/commercial-corporate' },
+  { label: 'Employment & Labour Law', to: '/practice-areas/employment-labour' },
+  { label: 'Family Law', to: '/practice-areas/family-law' },
+  { label: 'Property & Real Estate Law', to: '/practice-areas/property-real-estate' },
+  { label: 'Civil Litigation & Dispute Resolution', to: '/practice-areas/civil-litigation' },
 ];
 
 export const navItems = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Practice Areas', to: '/practice-areas', children: practiceAreaLinks },
-  { label: 'Case Studies', to: '/case-studies' },
+  { label: 'Our Process', to: '/our-process' },
   { label: 'Team', to: '/team' },
   { label: 'Insights', to: '/insights' },
+  { label: 'Careers', to: '/careers' },
   { label: 'Contact', to: '/contact' },
 ];
 
@@ -19,7 +21,7 @@ export const footerLinks = {
   firm: [
     { label: 'About Us', to: '/about' },
     { label: 'Our Team', to: '/team' },
-    { label: 'Case Studies', to: '/case-studies' },
+    { label: 'Our Process', to: '/our-process' },
     { label: 'Consultation', to: '/consultation' },
   ],
   legal: [

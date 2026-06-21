@@ -65,18 +65,21 @@ const PracticeAreasPage = () => {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>{current.title}</h3>
-                <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.7, marginBottom: '1.5rem' }}>
+                <h3 style={{ fontSize: '1.75rem', marginBottom: '0.75rem' }}>{current.title}</h3>
+                <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.7, marginBottom: '1.25rem' }}>
                   {current.description}
                 </p>
+                <ul style={{ marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {current.features.map((f) => (
+                    <li key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
+                      <span style={{ color: 'var(--color-purple)', fontWeight: 700, flexShrink: 0 }}>✓</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
                 <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.7, marginBottom: '2rem' }}>
                   {current.approach}
                 </p>
-                <div style={{ display: 'flex', gap: '2rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-                  <div><strong>{current.metrics.matters}</strong><br /><small>Matters</small></div>
-                  <div><strong>{current.metrics.ticket}</strong><br /><small>Scope</small></div>
-                  <div><strong>{current.metrics.team}</strong><br /><small>Team</small></div>
-                </div>
                 <Link to={`/practice-areas/${current.slug}`} className="btn btn--primary clickable">
                   Know more
                 </Link>
