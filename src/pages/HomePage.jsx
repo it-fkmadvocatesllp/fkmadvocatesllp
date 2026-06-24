@@ -40,27 +40,33 @@ const HomePage = () => {
       />
       <section className="home-hero" data-cursor-theme="dark">
         <HeroScene />
-        <div className="home-hero__content">
-          <div className="home-hero__visual" aria-hidden="true" />
-          <div className="home-hero__text reveal" data-reveal-delay="0.15">
-            <div className="home-hero__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img">
-                <path d="M12 3 19 6v5c0 5-3.4 8.6-7 10-3.6-1.4-7-5-7-10V6l7-3Z" fill="currentColor" />
-                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M4 7h16v14H4z" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
+        <div className="home-hero__overlay" aria-hidden="true" />
+        <div className="home-hero__bottom">
+          <Link to="/consultation" className="home-hero__cta clickable">
+            Book a Consultation
+          </Link>
+        </div>
+      </section>
+
+      <section className="section hero-intro">
+        <div className="container">
+          <div className="hero-intro__grid">
+            <div className="hero-intro__col hero-intro__col--headline">
+              <nav className="hero-intro__nav-tag" aria-label="Section label">
+                <span>Law Office</span>
+              </nav>
+              <h1 className="hero-intro__headline">Your Legal Advantage in Kenya.</h1>
             </div>
-            <span className="home-hero__kicker">Law Office</span>
-            <h1 className="home-hero__title">Strategic Legal Representation for Individuals, Businesses, and Institutions Across Kenya</h1>
-            <p className="home-hero__subtitle">
-              FKM Advocates LLP provides practical, results-oriented legal solutions in litigation, employment law, commercial transactions, family law, property law, and dispute resolution. Our advocates combine legal expertise with a client-focused approach to protect your interests and achieve favorable outcomes.
-            </p>
-            <div className="home-hero__actions">
-              <Link to="/consultation" className="btn btn--hero-outline clickable" data-cursor-label="View">
-                Book a Consultation
-              </Link>
-              <Link to="/practice-areas" className="btn btn--hero-ghost clickable" data-cursor-label="View">
-                Explore Our Practice Areas
-              </Link>
+            <div className="hero-intro__col">
+              <p className="hero-intro__sub">Strategic legal counsel for businesses, investors, property owners, and individuals navigating Kenya&apos;s legal landscape.</p>
+              <p className="hero-intro__body">FKM Advocates LLP combines sharp legal expertise with a results-first approach. Our advocates handle litigation, commercial transactions, employment law, property law, family law, and dispute resolution — with a track record of protecting what matters most to our clients.</p>
+            </div>
+            <div className="hero-intro__col">
+              <p className="hero-intro__trust">Trusted by businesses, institutions, and individuals across Kenya.</p>
+              <div className="hero-intro__actions">
+                <Link to="/consultation" className="btn btn--primary clickable">Book a Consultation</Link>
+                <Link to="/practice-areas" className="hero-intro__link clickable">See How We Can Help You →</Link>
+              </div>
             </div>
           </div>
         </div>
