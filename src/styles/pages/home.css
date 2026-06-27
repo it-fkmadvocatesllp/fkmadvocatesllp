@@ -34,6 +34,33 @@
   display: none;
 }
 
+.home-hero__content {
+  position: absolute;
+  bottom: clamp(2.5rem, 5vw, 4rem);
+  left: clamp(2rem, 6vw, 5rem);
+  z-index: 2;
+  max-width: 700px;
+}
+
+.home-hero__nav-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.home-hero__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
 .home-hero__cta {
   display: inline-flex;
   align-items: center;
@@ -87,6 +114,19 @@
   margin-bottom: 1.25rem;
 }
 
+.hero-intro__why {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-purple);
+  text-stroke: 1.5px var(--color-purple);
+  line-height: 1;
+  margin-bottom: 2rem;
+  user-select: none;
+}
+
 .hero-intro__nav-tag {
   display: inline-block;
   font-size: 0.7rem;
@@ -123,6 +163,48 @@
   align-items: flex-start;
 }
 
+.hero-intro__call {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  height: 100%;
+  justify-content: center;
+}
+
+.hero-intro__call-icon {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--color-purple);
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-intro__call-icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.hero-intro__call-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.hero-intro__call-text em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--color-purple);
+}
+
 .hero-intro__link {
   font-size: 0.82rem;
   font-weight: 600;
@@ -140,7 +222,7 @@
   .hero-intro__grid {
     grid-template-columns: 1fr 1fr;
   }
-  .hero-intro__col--headline {
+  .hero-intro__col--cta {
     grid-column: 1 / -1;
   }
 }

@@ -41,31 +41,40 @@ const HomePage = () => {
       <section className="home-hero" data-cursor-theme="dark">
         <HeroScene />
         <div className="home-hero__overlay" aria-hidden="true" />
-        <div className="home-hero__bottom">
-          <Link to="/consultation" className="home-hero__cta clickable">
-            Book a Consultation
-          </Link>
+        <div className="home-hero__content">
+          <nav className="home-hero__nav-tag">
+            <span>Law Office</span>
+          </nav>
+          <h1 className="home-hero__headline">Your Legal Advantage in Kenya.</h1>
         </div>
       </section>
 
       <section className="section hero-intro">
         <div className="container">
+          <div className="hero-intro__why">WHY US?</div>
           <div className="hero-intro__grid">
-            <div className="hero-intro__col hero-intro__col--headline">
-              <nav className="hero-intro__nav-tag" aria-label="Section label">
-                <span>Law Office</span>
-              </nav>
-              <h1 className="hero-intro__headline">Your Legal Advantage in Kenya.</h1>
+            <div className="hero-intro__col">
+              <p className="hero-intro__sub">We offer strategic legal counsel for businesses, investors, property owners, and individuals navigating Kenya&apos;s legal landscape.</p>
+              <p className="hero-intro__body">At FKM Advocates LLP we combine sharp legal expertise with a results-first approach. Our advocates handle litigation, commercial transactions, employment law, property law, family law, and dispute resolution — with a track record of protecting what matters most to our clients.</p>
             </div>
             <div className="hero-intro__col">
-              <p className="hero-intro__sub">Strategic legal counsel for businesses, investors, property owners, and individuals navigating Kenya&apos;s legal landscape.</p>
-              <p className="hero-intro__body">FKM Advocates LLP combines sharp legal expertise with a results-first approach. Our advocates handle litigation, commercial transactions, employment law, property law, family law, and dispute resolution — with a track record of protecting what matters most to our clients.</p>
-            </div>
-            <div className="hero-intro__col">
-              <p className="hero-intro__trust">Trusted by businesses, institutions, and individuals across Kenya.</p>
               <div className="hero-intro__actions">
                 <Link to="/consultation" className="btn btn--primary clickable">Book a Consultation</Link>
                 <Link to="/practice-areas" className="hero-intro__link clickable">See How We Can Help You →</Link>
+              </div>
+            </div>
+            <div className="hero-intro__col hero-intro__col--cta">
+              <div className="hero-intro__call">
+                <span className="hero-intro__call-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16z" />
+                  </svg>
+                </span>
+                <p className="hero-intro__call-text">
+                  Make the call,{' '}
+                  <em>we</em>{' '}will{' '}
+                  <em>deliver</em>
+                </p>
               </div>
             </div>
           </div>
