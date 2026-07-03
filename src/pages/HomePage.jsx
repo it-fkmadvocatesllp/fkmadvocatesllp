@@ -45,7 +45,10 @@ const HomePage = () => {
           <nav className="home-hero__nav-tag">
             <span>Law Office</span>
           </nav>
-          <h1 className="home-hero__headline">Your Legal Advantage in Kenya.</h1>
+          <div className="home-hero__headline">
+            <h1>FKM Advocates LLP</h1>
+            <span>, Your Legal Advantage in Kenya.</span>
+          </div>
         </div>
       </section>
 
