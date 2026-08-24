@@ -34,7 +34,7 @@ const HomePage = () => {
         <div className="container">
           <div className="intro-split__grid reveal">
             <div className="intro-split__left">
-              <h2>Strategic Legal,<br/>Counsel.</h2>
+              <h2>Strategic Legal<br/>Counsel.</h2>
             </div>
             <div className="intro-split__right">
               <p>
