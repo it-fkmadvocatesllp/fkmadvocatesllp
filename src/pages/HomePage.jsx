@@ -38,7 +38,7 @@ const HomePage = () => {
             </div>
             <div className="intro-split__right">
               <p>
-                <span className="drop-cap">FKM</span> Advocates LLP is a specialist corporate and disputes firm based in Kenya. We are designed for high-stakes matters such as complex commercial litigation, estate planning, and real estate conveyancing at the highest levels. "Superior Solutions, Swiftly" is the standard we operate by, not a slogan.
+                <span className="drop-cap">F</span> KM Advocates LLP is a specialist corporate and disputes firm based in Kenya. We are designed for high-stakes matters such as complex commercial litigation, estate planning, and real estate conveyancing at the highest levels.
               </p>
               <p>
                 Our practice spans high-value commercial conflicts, regulatory showdowns, and property claims. We move with speed and precision, and remain relentlessly focused on securing positive, enforceable outcomes for our clients. Rooted in Kenya, connected globally.
