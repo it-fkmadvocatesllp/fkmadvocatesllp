@@ -1,11 +1,13 @@
+// src/components/layout/Footer.jsx
 import { Link } from 'react-router-dom';
 import { firmInfo } from '../../data/firmStats';
-import { footerLinks, practiceAreaLinks } from '../../data/navigation';
+import { footerLinks } from '../../data/navigation';
 
 const Footer = () => (
   <footer className="site-footer" data-cursor-theme="dark">
     <div className="container">
       <div className="site-footer__grid">
+        {/* Column 1: Brand & Logo */}
         <div className="site-footer__brand">
           <Link to="/" className="site-logo clickable">
             <span className="site-logo__fkm">FKM</span>
@@ -15,44 +17,34 @@ const Footer = () => (
               <span className="site-logo__tagline">{firmInfo.tagline}</span>
             </span>
           </Link>
-          <p>{firmInfo.description}</p>
         </div>
 
+        {/* Column 2: Visit Our Offices */}
         <div>
-          <h4 className="site-footer__heading">Firm</h4>
-          <ul className="site-footer__links">
-            {footerLinks.firm.map((link) => (
-              <li key={link.to}>
-                <Link to={link.to} className="clickable">{link.label}</Link>
-              </li>
-            ))}
-          </ul>
+          <h4 className="site-footer__heading">Visit Our Offices</h4>
+          <div className="site-footer__text-block">
+            <p><strong>Nairobi HQ</strong><br />{firmInfo.address}<br />{firmInfo.addressDetail}</p>
+            <p style={{ marginTop: '1rem' }}><strong>Thika Branch</strong><br />{firmInfo.branch}</p>
+          </div>
         </div>
 
+        {/* Column 3: Contact Us */}
         <div>
-          <h4 className="site-footer__heading">Practice Areas</h4>
-          <ul className="site-footer__links">
-            {practiceAreaLinks.map((link) => (
-              <li key={link.to}>
-                <Link to={link.to} className="clickable">{link.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="site-footer__heading">Contact</h4>
-          <ul className="site-footer__links">
-            <li>{firmInfo.address}</li>
-            <li>{firmInfo.addressDetail}</li>
-            <li><a href={`tel:${firmInfo.phone.replace(/\s/g, '')}`} className="clickable">{firmInfo.phone}</a></li>
-            <li><a href={`mailto:${firmInfo.email}`} className="clickable">{firmInfo.email}</a></li>
-          </ul>
+          <h4 className="site-footer__heading">Contact Us</h4>
+          <div className="site-footer__text-block">
+            <p>
+              <a href={`mailto:${firmInfo.email}`} className="clickable">{firmInfo.email}</a>
+            </p>
+            <p>
+              <a href={`tel:${firmInfo.phone.replace(/\s/g, '')}`} className="clickable">{firmInfo.phone}</a>
+            </p>
+          </div>
         </div>
       </div>
 
+      {/* Bottom Legal Bar */}
       <div className="site-footer__bottom">
-        <span>© {new Date().getFullYear()} {firmInfo.name}. All rights reserved.</span>
+        <span>&copy; {new Date().getFullYear()} {firmInfo.name}. All rights reserved.</span>
         <div className="site-footer__legal">
           {footerLinks.legal.map((link) => (
             <Link key={link.to} to={link.to} className="clickable">{link.label}</Link>
