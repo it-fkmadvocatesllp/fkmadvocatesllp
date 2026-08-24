@@ -1,4 +1,3 @@
-// src/pages/HomePage.jsx
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -22,7 +21,7 @@ const HomePage = () => {
         <HeroScene />
         <div className="home-hero__content reveal">
           <div className="home-hero__headline">
-            <h1>Agile Legal Solutions for Modern Business.</h1>
+            <h1>Your Legal Advantage in Kenya.</h1>
           </div>
           <div className="home-hero__actions">
             <Link to="/consultation" className="btn btn--primary clickable">Consult With Us</Link>
@@ -35,7 +34,7 @@ const HomePage = () => {
         <div className="container">
           <div className="intro-split__grid reveal">
             <div className="intro-split__left">
-              <h2>Superior Solutions,<br/>Swiftly.</h2>
+              <h2>Strategic Legal,<br/>Counsel.</h2>
             </div>
             <div className="intro-split__right">
               <p>
