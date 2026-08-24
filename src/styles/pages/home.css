@@ -1,9 +1,8 @@
 /* src/styles/pages/home.css */
 
-/* --- HERO SECTION --- */
 .home-hero {
   position: relative;
-  height: 90vh; /* Taller, more immersive hero */
+  height: 90vh;
   min-height: 600px;
   display: flex;
   align-items: center;
@@ -19,115 +18,58 @@
   text-align: center;
 }
 
-.home-hero__nav-tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--color-accent); /* Vibrant Tech Purple */
-  margin-bottom: 1.5rem;
-}
-
 .home-hero__headline h1 {
-  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  font-size: clamp(3rem, 7vw, 5.5rem);
   color: var(--color-text-on-dark);
-  margin-bottom: 1.5rem;
-}
-
-.home-hero__subheadline {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
-  color: var(--color-text-muted-on-dark);
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-  max-width: 650px;
-  margin-inline: auto;
+  margin-bottom: 2rem;
+  letter-spacing: -0.03em;
 }
 
 .home-hero__actions {
   display: flex;
-  gap: 1rem;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
-/* --- TRUST STRIP --- */
-.home-trust-strip {
-  background-color: var(--color-bg-secondary); /* Pure White */
-  border-bottom: 1px solid var(--color-border);
-  padding: 1rem 0;
+/* --- ADRA-STYLE INTRO SPLIT --- */
+.intro-split {
+  padding: 8rem 0;
+  background-color: #FFFFFF;
 }
 
-/* --- AGILE APPROACH (50/50 Split) --- */
-.agile-approach__grid {
+.intro-split__grid {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr; /* Matches the Adra ratio */
+  gap: 4rem;
+  align-items: start;
+}
+
+.intro-split__left h2 {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--color-bg-dark);
+  line-height: 1.2;
+}
+
+.intro-split__right {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(3rem, 6vw, 6rem);
-  align-items: center;
-}
-
-.agile-approach__image-col {
-  width: 100%;
-  height: 100%;
-  min-height: 500px;
-}
-
-.agile-approach__image-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-dark-alt) 100%);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-/* Sleek Purple accent line on the image placeholder */
-.agile-approach__image-placeholder::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  background-color: var(--color-accent);
-}
-
-.agile-approach__list {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.agile-approach__list li {
+  gap: 3rem;
   color: var(--color-text-secondary);
-  font-size: 1rem;
-  line-height: 1.6;
-  position: relative;
-  padding-left: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
 }
 
-.agile-approach__list li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
-  font-weight: 700;
+.drop-cap {
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.8;
+  padding-right: 0.4rem;
+  padding-top: 0.2rem;
+  font-weight: 800;
+  color: var(--color-bg-dark);
 }
 
-.agile-approach__list strong {
-  color: var(--color-text);
-  font-weight: 600;
-}
-
-/* Responsive Breakpoints */
-@media (max-width: 900px) {
-  .agile-approach__grid {
-    grid-template-columns: 1fr;
-  }
-  .agile-approach__image-col {
-    min-height: 350px;
-  }
+@media (max-width: 960px) {
+  .intro-split__grid { grid-template-columns: 1fr; gap: 2rem; }
+  .intro-split__right { grid-template-columns: 1fr; gap: 1.5rem; }
 }
