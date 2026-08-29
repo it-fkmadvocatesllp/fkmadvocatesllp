@@ -10,9 +10,9 @@
 /* Vibrant Purple Tech Glow */
 .hero-scene__gradient-glow {
   position: absolute;
-  width: 120vw;
-  height: 120vw;
-  top: -40%;
+  width: 100vw;
+  height: 100vw;
+  top: -20%;
   left: 50%;
   transform: translateX(-50%);
   background: radial-gradient(circle at center, var(--color-purple-glow) 0%, transparent 60%);
