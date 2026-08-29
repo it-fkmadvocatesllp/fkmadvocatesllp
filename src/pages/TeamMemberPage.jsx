@@ -3,7 +3,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { getTeamMemberBySlug } from '../data/team';
 import SEO from '../components/SEO';
-import '../styles/pages/team.css'; // Reusing the same CSS file for ease
+import './team.css'; // Reusing the same CSS file for ease
 
 const TeamMemberPage = () => {
   const { slug } = useParams();
