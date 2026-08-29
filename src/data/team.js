@@ -13,7 +13,7 @@ export const teamMembers = [
     role: 'Partner',
     // ADDED MISSING FIELDS FOR THE UI:
     image: '/team/joseph-placeholder.jpg', // Replace with actual image path in public/ folder
-    email: 'j.mwichigi@fkmadvocatesllp.com',
+    email: 'mwichigi@fkmadvocatesllp.com',
     linkedin: 'https://www.linkedin.com/', 
     admissions: [
       'Advocate of the High Court of Kenya',
