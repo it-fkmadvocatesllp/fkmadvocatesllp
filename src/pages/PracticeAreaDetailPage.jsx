@@ -1,7 +1,9 @@
+// src/pages/PracticeAreaDetailPage.jsx
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { getPracticeAreaBySlug, practiceAreas } from '../data/practiceAreas';
 import SEO from '../components/SEO';
+import '../styles/pages/practice-detail.css';
 
 const PracticeAreaDetailPage = () => {
   const { slug } = useParams();
@@ -15,48 +17,75 @@ const PracticeAreaDetailPage = () => {
   return (
     <div ref={containerRef}>
       <SEO
-        title={`${area.title} Lawyers in Nairobi, Kenya`}
-        description={`${area.description} FKM Advocates LLP delivers expert ${area.title} legal services in Nairobi and across Kenya.`}
+        title={`${area.title} | FKM Advocates LLP`}
+        description={`${area.description} FKM Advocates LLP delivers expert ${area.title} legal services in Nairobi and across East Africa.`}
         canonical={`/practice-areas/${area.slug}`}
       />
-      <section className="page-hero">
+
+      {/* 1. DARK MINIMALIST HERO */}
+      <section className="page-hero bg-dark">
         <div className="container reveal">
           <span className="kicker">Practice Area</span>
-          <h1 className="stacked-headline">
-            <span>{area.title.split(' ')[0]}</span>
-            <span>{area.title.split(' ').slice(1).join(' ') || 'Law'}</span>
-          </h1>
-          <p className="section-subtitle" style={{ margin: '1.5rem auto 0' }}>{area.description}</p>
+          <div className="hero-headline-wrapper">
+            <h1 className="stacked-headline text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
+              {area.title}
+            </h1>
+          </div>
+          <p className="hero-subtitle text-muted-on-dark">
+            {area.description}
+          </p>
         </div>
       </section>
 
-      <section className="section">
+      {/* 2. TWO-COLUMN CONTENT AREA */}
+      <section className="section bg-light">
         <div className="container">
-          <div className="reveal">
-            <h2 className="section-title">Our Approach</h2>
-            <p className="section-subtitle" style={{ marginBottom: '2rem' }}>{area.approach}</p>
+          <div className="practice-detail-layout reveal">
+            
+            {/* Left: Main Content */}
+            <div className="practice-detail-main">
+              <h2 className="section-title">Our Approach</h2>
+              <p className="practice-detail-text">{area.approach}</p>
+              
+              <div className="practice-detail-actions">
+                <Link to="/consultation" className="btn btn--primary clickable">
+                  Consult With Us
+                </Link>
+                <Link to="/practice-areas" className="btn btn--outline clickable">
+                  View All Areas
+                </Link>
+              </div>
+            </div>
 
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>Services</h3>
-            <ul style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '0.75rem', marginBottom: '3rem' }}>
-              {area.features.map((feature) => (
-                <li key={feature} style={{ padding: '0.75rem 1rem', background: 'var(--color-bg-secondary)', border: '1px solid var(--color-border)', borderRadius: 'var(--radius-sm)' }}>
-                  {feature}
-                </li>
-              ))}
-            </ul>
+            {/* Right: Services Card */}
+            <aside className="practice-detail-sidebar">
+              <div className="services-card">
+                <h3 className="services-card__title">Scope of Services</h3>
+                <ul className="services-card__list">
+                  {area.features.map((feature) => (
+                    <li key={feature} className="service-tag">
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
 
-            <Link to="/consultation" className="btn btn--primary clickable">Book a Consultation</Link>
           </div>
         </div>
       </section>
 
+      {/* 3. OTHER AREAS (Dark Strip) */}
       <section className="section section--dark" data-cursor-theme="dark">
         <div className="container reveal">
-          <h2 className="section-title">Other Practice Areas</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginTop: '1.5rem' }}>
+          <span className="kicker">Explore More</span>
+          <h2 className="section-title" style={{ fontSize: '2rem' }}>Other Practice Areas</h2>
+          
+          <div className="other-areas-grid">
             {others.map((other) => (
-              <Link key={other.slug} to={`/practice-areas/${other.slug}`} className="glass-card clickable" style={{ padding: '1.5rem', display: 'block' }}>
+              <Link key={other.slug} to={`/practice-areas/${other.slug}`} className="other-area-card clickable">
                 <strong>{other.title}</strong>
+                <span className="arrow" aria-hidden="true">→</span>
               </Link>
             ))}
           </div>
