@@ -25,7 +25,7 @@ const PracticeAreaDetailPage = () => {
       {/* 1. DARK MINIMALIST HERO */}
       <section className="page-hero bg-dark">
         <div className="container reveal">
-          <span className="kicker">Practice Area</span>
+          <span className="kicker">        </span>
           <div className="hero-headline-wrapper">
             <h1 className="stacked-headline text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
               {area.title}
