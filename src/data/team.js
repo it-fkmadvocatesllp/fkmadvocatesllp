@@ -27,3 +27,4 @@ export const teamMembers = [
     ],
   },
 ];
+export const getTeamMemberBySlug = (slug) => teamMembers.find((m) => m.slug === slug);
