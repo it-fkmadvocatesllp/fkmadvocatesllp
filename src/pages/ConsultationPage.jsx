@@ -1,7 +1,7 @@
 // src/pages/ConsultationPage.jsx
 import SEO from '../components/SEO';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import '../styles/pages/consultation.css';
+import '../styles/pages/ConsultationPage.css';
 
 const ConsultationPage = () => {
   const containerRef = useScrollReveal('.reveal');
