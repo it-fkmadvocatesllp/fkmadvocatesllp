@@ -1,77 +1,49 @@
+// src/pages/TeamPage.jsx
 import { Link } from 'react-router-dom';
-import { useState, useMemo } from 'react';
-import { motion as Motion, AnimatePresence } from 'framer-motion';
-import { useScrollReveal } from '../hooks/useScrollReveal';
-import FilterBar from '../components/ui/FilterBar';
-import { teamMembers, teamFilters } from '../data/team';
 import SEO from '../components/SEO';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { teamMembers } from '../data/team';
+import '../styles/pages/team.css';
 
 const TeamPage = () => {
-  const [filters, setFilters] = useState({ strategy: '', role: '', office: '' });
   const containerRef = useScrollReveal('.reveal');
-
-  const filtered = useMemo(() => teamMembers.filter((member) => {
-    if (filters.strategy && !member.strategy.includes(filters.strategy)) return false;
-    if (filters.role && member.role !== filters.role) return false;
-    if (filters.office && member.office !== filters.office) return false;
-    return true;
-  }), [filters]);
 
   return (
     <div ref={containerRef}>
       <SEO
-        title="Our Legal Team | Advocates & Counsel in Nairobi"
-        description="Meet the experienced advocates and legal counsel at FKM Advocates LLP. Our team brings deep expertise across corporate law, litigation, estate planning, and real estate in Kenya."
+        title="Your Team | FKM Advocates LLP"
+        description="Meet the agile, experienced legal professionals driving success for modern businesses in Kenya."
         canonical="/team"
       />
-      <section className="page-hero">
+
+      {/* DARK HERO */}
+      <section className="page-hero bg-dark">
         <div className="container reveal">
-          <span className="kicker">Our Team</span>
-          <h1 className="stacked-headline">
-            <span>Behind</span>
-            <span>FKM</span>
-          </h1>
-          <p className="section-subtitle" style={{ margin: '1.5rem auto 0' }}>
-            Our team has extensive experience in private practice and legal advisory across all practice areas.
-          </p>
+          <span className="kicker">Your Team</span>
+          <div className="hero-headline-wrapper">
+            <h1 className="stacked-headline text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
+              Legal Excellence,<br />Delivered.
+            </h1>
+          </div>
         </div>
       </section>
 
-      <section className="section">
+      {/* TEAM GRID */}
+      <section className="section bg-light" style={{ paddingBottom: '8rem' }}>
         <div className="container">
-          <FilterBar
-            filters={teamFilters}
-            activeFilters={filters}
-            onFilterChange={(key, value) => setFilters((f) => ({ ...f, [key]: value }))}
-            onClear={() => setFilters({ strategy: '', role: '', office: '' })}
-          />
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.5rem' }}>
-            <AnimatePresence mode="popLayout">
-              {filtered.map((member) => (
-                <Motion.article
-                  key={member.id}
-                  className="glass-card reveal"
-                  style={{ padding: '2rem', textAlign: 'center' }}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                >
-                  <div style={{ width: '4rem', height: '4rem', margin: '0 auto 1rem', display: 'grid', placeItems: 'center', background: 'var(--color-bg-dark)', color: 'var(--color-accent)', fontFamily: 'var(--font-display)', fontWeight: 600, borderRadius: '50%' }}>
-                    {member.initials}
-                  </div>
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.25rem' }}>{member.name}</h3>
-                  <p style={{ color: 'var(--color-accent)', fontSize: '0.85rem', marginBottom: '0.5rem' }}>{member.title}</p>
-                  <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginBottom: '1.25rem' }}>{member.office}</p>
-                  {member.slug && (
-                    <Link to={`/team/${member.slug}`} className="btn btn--outline clickable" style={{ fontSize: '0.78rem', padding: '0.6rem 1.25rem' }}>
-                      See More
-                    </Link>
-                  )}
-                </Motion.article>
-              ))}
-            </AnimatePresence>
+          <div className="team-grid reveal">
+            {teamMembers.map((member) => (
+              <Link key={member.slug} to={`/team/${member.slug}`} className="team-card clickable">
+                <div className="team-card__image-wrapper">
+                  <img src={member.image} alt={member.name} loading="lazy" />
+                  <div className="team-card__overlay"></div>
+                </div>
+                <div className="team-card__info">
+                  <h3>{member.name}</h3>
+                  <span className="team-card__role">{member.role}</span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
