@@ -11,10 +11,22 @@ export const teamMembers = [
     name: 'Joseph Mwichigi',
     title: 'Managing Partner',
     role: 'Partner',
+    // ADDED MISSING FIELDS FOR THE UI:
+    image: '/team/joseph-placeholder.jpg', // Replace with actual image path in public/ folder
+    email: 'j.mwichigi@fkmadvocatesllp.com',
+    linkedin: 'https://www.linkedin.com/', 
+    admissions: [
+      'Advocate of the High Court of Kenya',
+      'Member, Law Society of Kenya (LSK)'
+    ],
     strategy: ['Leadership', 'Corporate & Commercial'],
     office: 'Nairobi',
     initials: 'JM',
-    bio: 'Joseph Mwichigi is an advocate with experience in commercial law, litigation, employment law, and dispute resolution. He has advised individuals, businesses, and institutions on complex legal matters requiring strategic and practical solutions.',
+    // CHANGED BIO FROM STRING TO ARRAY:
+    bio: [
+      'Joseph Mwichigi is an advocate with experience in commercial law, litigation, employment law, and dispute resolution.',
+      'He has advised individuals, businesses, and institutions on complex legal matters requiring strategic and practical solutions.'
+    ],
     practiceAreas: [
       'Commercial Law',
       'Employment Law',
@@ -26,5 +38,7 @@ export const teamMembers = [
       'Postgraduate Diploma in Law – Kenya School of Law',
     ],
   },
+  // Add other team members here following this exact format...
 ];
+
 export const getTeamMemberBySlug = (slug) => teamMembers.find((m) => m.slug === slug);
