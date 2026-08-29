@@ -50,7 +50,7 @@ const ConsultationPage = () => {
       {/* DARK HERO */}
       <section className="page-hero bg-dark">
         <div className="container reveal">
-          <span className="kicker">Get Started</span>
+          <span className="kicker">     </span>
           <div className="hero-headline-wrapper">
             <h1 className="stacked-headline text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
               Request a Consultation.
