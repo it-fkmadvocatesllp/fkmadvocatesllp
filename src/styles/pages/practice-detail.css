@@ -1,13 +1,15 @@
-/* src/styles/pages/practice-detail.css */
 
 .hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
-  color: var(--color-text-muted-on-dark);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--color-accent); /* Vibrant Tech Purple */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   line-height: 1.6;
-  margin-top: 1.5rem;
-  max-width: 700px;
+  margin: 1.5rem auto 0; /* Auto margins center it horizontally */
+  max-width: 800px;
+  text-align: center; /* Forces text to center */
 }
-
 /* --- TWO-COLUMN LAYOUT --- */
 .practice-detail-layout {
   display: grid;
@@ -21,6 +23,8 @@
   color: var(--color-text-secondary);
   line-height: 1.8;
   margin-bottom: 3rem;
+  overflow: visible; /* Prevents the text from cutting off at the bottom */
+  display: block;
 }
 
 .practice-detail-actions {
