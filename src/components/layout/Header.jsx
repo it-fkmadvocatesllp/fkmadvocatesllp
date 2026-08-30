@@ -1,3 +1,4 @@
+// src/components/layout/Header.jsx
 import { useState, useEffect, useCallback } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { navItems } from '../../data/navigation';
@@ -34,7 +35,7 @@ const Header = ({ isHome = false }) => {
     <>
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${isHome ? 'is-home' : ''}`}>
         <div className="site-header__inner">
-          <Link to="/" className="site-logo clickable" aria-label="FKM Advocates LLP home">
+          <Link to="/" className="site-logo clickable" aria-label="FKM Advocates LLP home" onClick={closeMenu}>
             <span className="site-logo__fkm">FKM</span>
             <span className="site-logo__divider" aria-hidden="true" />
             <span className="site-logo__text">
@@ -43,7 +44,8 @@ const Header = ({ isHome = false }) => {
             </span>
           </Link>
 
-          <nav className="site-nav" aria-label="Primary navigation">
+          {/* DESKTOP NAV */}
+          <nav className="site-nav desktop-only" aria-label="Primary navigation">
             {navItems.map((item) =>
               item.children ? (
                 <div key={item.label} className="site-nav__dropdown">
@@ -82,29 +84,35 @@ const Header = ({ isHome = false }) => {
             )}
           </nav>
 
-          <Link to="/consultation" className="header-cta clickable">
-            Consult With Us
-          </Link>
+          <div className="desktop-only">
+            <Link to="/consultation" className="header-cta clickable">
+              Consult With Us
+            </Link>
+          </div>
 
+          {/* HAMBURGER BUTTON */}
           <button
             type="button"
-            className={`mobile-menu-btn ${menuOpen ? 'is-open' : ''} ${isHome && !scrolled ? 'is-light' : ''}`}
+            className={`mobile-menu-btn clickable ${menuOpen ? 'is-open' : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
-            <span /><span /><span />
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
           </button>
         </div>
       </header>
 
-      {/* Backdrop */}
+      {/* MOBILE BACKDROP */}
       <div
         className={`mobile-menu-backdrop ${menuOpen ? 'is-visible' : ''}`}
         onClick={closeMenu}
         aria-hidden="true"
       />
 
+      {/* MOBILE DRAWER */}
       <nav
         className={`mobile-menu ${menuOpen ? 'is-open' : ''}`}
         aria-label="Mobile navigation"
@@ -112,60 +120,39 @@ const Header = ({ isHome = false }) => {
         aria-modal={menuOpen}
         role="dialog"
       >
-        {/* Drawer header */}
         <div className="mobile-menu__header">
           <Link to="/" className="site-logo clickable" aria-label="FKM Advocates LLP home" onClick={closeMenu}>
             <span className="site-logo__fkm">FKM</span>
             <span className="site-logo__divider" aria-hidden="true" />
             <span className="site-logo__text">
-              <span className="site-logo__name" style={{ color: 'var(--color-text)' }}>Advocates LLP</span>
-              <span className="site-logo__tagline">Legal Excellence</span>
+              <span className="site-logo__name" style={{ color: 'var(--color-text-on-dark)' }}>Advocates LLP</span>
+              <span className="site-logo__tagline" style={{ color: 'var(--color-text-muted-on-dark)' }}>Legal Excellence</span>
             </span>
           </Link>
-          <button
-            type="button"
-            className="mobile-menu__close clickable"
-            onClick={closeMenu}
-            aria-label="Close menu"
-          >
-            ×
-          </button>
         </div>
 
-        {/* Nav items */}
         <div className="mobile-menu__body">
-          {navItems.map((item, i) => (
-            <div key={item.label} className="mobile-menu__item" style={{ '--i': i }}>
+          {navItems.map((item) => (
+            <div key={item.label} className="mobile-menu__item">
               {item.children ? (
                 <>
                   <button
                     type="button"
-                    className="mobile-menu__link mobile-menu__accordion-btn clickable"
+                    className={`mobile-menu__link mobile-menu__accordion-btn clickable ${expandedItem === item.label ? 'is-active' : ''}`}
                     onClick={() => toggleExpanded(item.label)}
                     aria-expanded={expandedItem === item.label}
                   >
                     {item.label}
                     <span className={`mobile-menu__chevron ${expandedItem === item.label ? 'is-open' : ''}`}>
-                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true">
-                        <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                      </svg>
+                      ↓
                     </span>
                   </button>
                   <div className={`mobile-menu__sub ${expandedItem === item.label ? 'is-open' : ''}`}>
-                    <Link
-                      to={item.to}
-                      className="mobile-menu__sub-link clickable"
-                      onClick={closeMenu}
-                    >
-                      All Practice Areas
+                    <Link to={item.to} className="mobile-menu__sub-link clickable" onClick={closeMenu}>
+                      View All {item.label}
                     </Link>
                     {item.children.map((child) => (
-                      <Link
-                        key={child.to}
-                        to={child.to}
-                        className="mobile-menu__sub-link clickable"
-                        onClick={closeMenu}
-                      >
+                      <Link key={child.to} to={child.to} className="mobile-menu__sub-link clickable" onClick={closeMenu}>
                         {child.label}
                       </Link>
                     ))}
@@ -175,9 +162,7 @@ const Header = ({ isHome = false }) => {
                 <NavLink
                   to={item.to}
                   end={item.to === '/'}
-                  className={({ isActive }) =>
-                    `mobile-menu__link clickable${isActive ? ' is-active' : ''}`
-                  }
+                  className={({ isActive }) => `mobile-menu__link clickable ${isActive ? 'is-active' : ''}`}
                   onClick={closeMenu}
                 >
                   {item.label}
@@ -187,14 +172,9 @@ const Header = ({ isHome = false }) => {
           ))}
         </div>
 
-        {/* CTA */}
         <div className="mobile-menu__footer">
-          <Link
-            to="/consultation"
-            className="btn btn--primary clickable mobile-menu__cta"
-            onClick={closeMenu}
-          >
-            Book a Consultation
+          <Link to="/consultation" className="btn btn--primary clickable mobile-menu__cta" onClick={closeMenu}>
+            Consult With Us
           </Link>
         </div>
       </nav>
