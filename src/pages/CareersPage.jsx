@@ -17,7 +17,6 @@ const CareersPage = () => {
       {/* DARK HERO */}
       <section className="page-hero bg-dark">
         <div className="container reveal">
-          <span className="kicker">Careers</span>
           <div className="hero-headline-wrapper">
             <h1 className="stacked-headline text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
               Build the Future<br />of Law.
