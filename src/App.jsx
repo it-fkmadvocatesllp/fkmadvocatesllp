@@ -2,7 +2,6 @@ import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SiteLayout from './layouts/SiteLayout';
 import ScrollToTop from './components/ScrollToTop';
-import Cursor from './components/Cursor';
 import { useLenis } from './hooks/useLenis';
 import { useIsDesktop } from './hooks/useMediaQuery';
 
