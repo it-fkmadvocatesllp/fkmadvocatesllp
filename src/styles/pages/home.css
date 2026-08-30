@@ -73,3 +73,53 @@
   .intro-split__grid { grid-template-columns: 1fr; gap: 2rem; }
   .intro-split__right { grid-template-columns: 1fr; gap: 1.5rem; }
 }
+
+/* --- HOMEPAGE MOBILE OVERRIDES --- */
+
+@media (max-width: 768px) {
+  /* 1. Tighten the Homepage Hero */
+  .home-hero {
+    height: auto;
+    min-height: 80vh;
+    padding-top: calc(var(--header-height, 80px) + 2rem);
+    padding-bottom: 4rem;
+  }
+
+  .home-hero__headline h1 {
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    /* Prevent text overflow */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .home-hero__subheadline {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .home-hero__actions {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  /* 2. Tighten the Adra-Style Split Intro */
+  .intro-split {
+    padding: 4rem 0 !important; /* Reduced from 8rem */
+  }
+
+  .intro-split__grid {
+    gap: 2rem;
+  }
+
+  .intro-split__left h2 {
+    font-size: 1.8rem;
+  }
+
+  .drop-cap {
+    font-size: 3.2rem; /* Scale down drop-cap slightly */
+    line-height: 0.8;
+  }
+}

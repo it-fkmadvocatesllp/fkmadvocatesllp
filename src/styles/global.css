@@ -379,3 +379,51 @@ ul { list-style: none; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* --- PHASE 2: MOBILE TYPOGRAPHY & SPACING FIXES --- */
+
+@media (max-width: 768px) {
+  /* 1. Scale down massive headlines */
+  .stacked-headline,
+  .page-hero .stacked-headline {
+    /* Reduces the minimum size from 3rem to 2.2rem so long words don't overflow */
+    font-size: clamp(2.2rem, 10vw, 3.5rem) !important; 
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    /* Bulletproof overflow prevention */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 8vw, 2.2rem) !important;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* 2. Tighten Global Whitespace */
+  .section {
+    padding: 3.5rem 0 !important; /* Reduced from default 5rem/6rem */
+  }
+
+  .container {
+    padding: 0 1.25rem; /* Slightly tighter edges on mobile */
+  }
+
+  /* 3. Compress the Hero Sections */
+  .page-hero {
+    /* Less dead space above and below the page titles */
+    padding: calc(var(--header-height, 80px) + 2rem) 0 2rem !important;
+  }
+
+  /* 4. Full-width buttons on mobile */
+  .btn, .btn-premium {
+    width: 100%;
+    justify-content: center;
+  }
+}
