@@ -1,69 +1,112 @@
+// src/pages/LegalPage.jsx
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
-const legalContent = {
-  '/privacy': {
-    title: 'Privacy Policy',
-    content: `
-      <p>FKM Advocates LLP provides this privacy policy to inform you how we process your personal data and protect your privacy.</p>
-      <h3>Data Controller</h3>
-      <p>FKM Advocates LLP, Kenrail Towers, 3rd Floor, Southern Wing, Suite SW-3.3A, Nairobi, Kenya. Email: office@fkmadvocatesllp.com</p>
-      <h3>Purposes of Processing</h3>
-      <p>We collect and process personal information to manage client relationships, handle consultation requests, respond to inquiries, and improve our website experience.</p>
-      <h3>Your Rights</h3>
-      <p>You may request access, rectification, or deletion of your personal data by contacting us at office@fkmadvocatesllp.com.</p>
-    `,
-  },
-  '/legal': {
-    title: 'Legal Notice',
-    content: `
-      <p>This Legal Notice regulates access and use of the website fkmadvocatesllp.com, operated by FKM Advocates LLP.</p>
-      <h3>Intellectual Property</h3>
-      <p>All content displayed on this portal, including texts, graphics, and design elements, is the intellectual property of FKM Advocates LLP or third parties with authorization.</p>
-      <h3>Terms of Use</h3>
-      <p>Users agree to use this portal properly and only for lawful purposes. The portal must not be used for purposes detrimental to FKM Advocates LLP or third parties.</p>
-      <h3>Liability</h3>
-      <p>FKM Advocates LLP does not guarantee that the site will be free of errors or viruses. Users are responsible for having adequate security tools on their devices.</p>
-    `,
-  },
-  '/cookies': {
-    title: 'Cookie Policy',
-    content: `
-      <p>FKM Advocates LLP uses cookies to provide a better browsing experience and analyze site traffic.</p>
-      <h3>Types of Cookies</h3>
-      <ul>
-        <li><strong>Technical cookies:</strong> Essential for website functionality.</li>
-        <li><strong>Preference cookies:</strong> Remember your settings and preferences.</li>
-        <li><strong>Analytics cookies:</strong> Help us understand how visitors interact with our site.</li>
-      </ul>
-      <h3>Managing Cookies</h3>
-      <p>You can allow, block, or delete cookies through your browser settings. Disabling cookies may affect some site functionality.</p>
-    `,
-  },
-};
+import SEO from '../components/SEO';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import '../styles/pages/practice-areas.css'; // We can reuse the SaaS Tabs CSS!
 
 const LegalPage = () => {
-  const { pathname } = useLocation();
-  const page = legalContent[pathname];
+  const containerRef = useScrollReveal('.reveal');
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState('privacy');
 
-  if (!page) return null;
+  // Auto-select tab based on the URL path (e.g., /privacy, /legal, /cookies)
+  useEffect(() => {
+    if (location.pathname.includes('privacy')) setActiveTab('privacy');
+    if (location.pathname.includes('legal')) setActiveTab('legal');
+    if (location.pathname.includes('cookies')) setActiveTab('cookies');
+  }, [location.pathname]);
 
   return (
-    <article>
-      <section className="page-hero">
+    <div ref={containerRef}>
+      <SEO
+        title="Legal & Privacy | FKM Advocates LLP"
+        description="Legal notices, privacy policy, and cookie information for FKM Advocates LLP."
+        canonical="/privacy"
+      />
+
+      {/* DARK HERO */}
+      <section className="page-hero bg-dark">
         <div className="container reveal">
-          <h1 className="section-title">{page.title}</h1>
+          <span className="kicker">Compliance</span>
+          <div className="hero-headline-wrapper">
+            <h1 className="stacked-headline text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
+              Legal & Privacy
+            </h1>
+          </div>
         </div>
       </section>
-      <section className="section">
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <div
-            className="reveal legal-content"
-            style={{ lineHeight: 1.8, color: 'var(--color-text-secondary)' }}
-            dangerouslySetInnerHTML={{ __html: page.content }}
-          />
+
+      {/* SAAS TABBED LAYOUT (Reusing Practice Areas CSS) */}
+      <section className="section bg-light" style={{ paddingBottom: '8rem' }}>
+        <div className="container">
+          <div className="practice-tabs-layout reveal">
+            
+            {/* Sidebar Navigation */}
+            <div className="practice-sidebar">
+              <button
+                className={`practice-tab-btn ${activeTab === 'privacy' ? 'is-active' : ''}`}
+                onClick={() => setActiveTab('privacy')}
+              >
+                Privacy Policy
+              </button>
+              <button
+                className={`practice-tab-btn ${activeTab === 'legal' ? 'is-active' : ''}`}
+                onClick={() => setActiveTab('legal')}
+              >
+                Legal Notice
+              </button>
+              <button
+                className={`practice-tab-btn ${activeTab === 'cookies' ? 'is-active' : ''}`}
+                onClick={() => setActiveTab('cookies')}
+              >
+                Cookie Policy
+              </button>
+            </div>
+
+            {/* Dynamic Content Area */}
+            <div className="practice-content-wrapper">
+              <div className="practice-content-card">
+                
+                {activeTab === 'privacy' && (
+                  <div className="legal-content">
+                    <h2 className="practice-content__title">Privacy Policy</h2>
+                    <p className="practice-content__desc">Last updated: August 2026</p>
+                    <p>FKM Advocates LLP respects your privacy and is committed to protecting your personal data. This privacy policy informs you about how we look after your personal data when you visit our website or use our legal services.</p>
+                    <h3>1. The Data We Collect</h3>
+                    <p>We may collect, use, store and transfer different kinds of personal data about you, including Identity Data (first name, last name), Contact Data (email address, telephone numbers), and Usage Data.</p>
+                    <h3>2. How We Use Your Data</h3>
+                    <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data to perform the contract we are about to enter into or have entered into with you, or to comply with a legal obligation.</p>
+                  </div>
+                )}
+
+                {activeTab === 'legal' && (
+                  <div className="legal-content">
+                    <h2 className="practice-content__title">Legal Notice</h2>
+                    <p className="practice-content__desc">Important Information</p>
+                    <p>The materials on this website are intended for general informational purposes only and do not constitute legal advice. The content of this website may not reflect the most current legal developments.</p>
+                    <h3>No Advocate-Client Relationship</h3>
+                    <p>Transmission of information from this website does not create an advocate-client relationship between you and FKM Advocates LLP, nor is it intended to do so. The transmission of the website, in part or in whole, and/or any communication with us via Internet e-mail through this site does not constitute or create an advocate-client relationship.</p>
+                  </div>
+                )}
+
+                {activeTab === 'cookies' && (
+                  <div className="legal-content">
+                    <h2 className="practice-content__title">Cookie Policy</h2>
+                    <p className="practice-content__desc">How we use cookies</p>
+                    <p>Our website uses cookies to distinguish you from other users of our website. This helps us to provide you with a good experience when you browse our website and also allows us to improve our site.</p>
+                    <h3>What are cookies?</h3>
+                    <p>A cookie is a small file of letters and numbers that we store on your browser or the hard drive of your computer if you agree. We use essential cookies required for the operation of our site, and analytical/performance cookies to recognize and count the number of visitors.</p>
+                  </div>
+                )}
+
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
-    </article>
+    </div>
   );
 };
 
