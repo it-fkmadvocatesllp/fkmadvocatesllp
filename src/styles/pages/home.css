@@ -44,12 +44,13 @@
 }
 
 .intro-split__left h2 {
-  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 800;
   color: var(--color-bg-dark);
-  line-height: 1.2;
+  line-height: 1.4; /* Increased from 1.2 to prevent vertical overlap */
+  letter-spacing: -0.02em;
+  display: block;
 }
-
 .intro-split__right {
   display: grid;
   grid-template-columns: 1fr 1fr;
