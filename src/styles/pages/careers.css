@@ -91,14 +91,25 @@
   line-height: 1.6;
 }
 
-/* --- RESPONSIVE --- */
+/* --- MOBILE GRID COLLAPSE: CAREERS --- */
 @media (max-width: 960px) {
   .careers-layout {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
   }
   
   .careers-board {
-    padding: 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  /* Stack the job card contents so the arrow doesn't squish the text */
+  .job-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .job-card__arrow {
+    align-self: flex-end;
   }
 }

@@ -124,3 +124,52 @@
   display: flex;
   gap: 1rem;
 }
+/* --- MOBILE GRID COLLAPSE: PRACTICE AREAS --- */
+@media (max-width: 960px) {
+  .practice-tabs-layout {
+    grid-template-columns: 1fr; /* Collapse to 1 column */
+    gap: 2rem;
+  }
+  
+  /* Convert vertical sidebar to horizontal scrolling tabs */
+  .practice-sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    border-left: none;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    /* Hide scrollbar for cleaner UI */
+    scrollbar-width: none; 
+  }
+  
+  .practice-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .practice-tab-btn {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    margin-left: 0;
+    margin-bottom: -2px; /* Overlap the bottom border */
+    white-space: nowrap; /* Prevent text from wrapping */
+    padding: 1rem;
+  }
+
+  .practice-tab-btn.is-active {
+    border-left-color: transparent;
+    border-bottom-color: var(--color-accent);
+  }
+
+  .practice-content-card {
+    padding: 2rem 1.5rem; /* Less padding inside the card on mobile */
+  }
+
+  .practice-content__features ul {
+    grid-template-columns: 1fr; /* Stack the features list */
+  }
+  
+  .practice-content__actions {
+    flex-direction: column;
+  }
+}

@@ -111,14 +111,25 @@
   transform: translateX(4px);
 }
 
-/* --- RESPONSIVE --- */
+/* --- MOBILE GRID COLLAPSE: PRACTICE DETAILS --- */
 @media (max-width: 960px) {
   .practice-detail-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 3rem;
   }
   
   .practice-detail-sidebar {
     position: static;
+    order: -1; /* This pulls the "Scope of Services" card ABOVE the "Our Approach" text on mobile! */
+    width: 100%;
+  }
+
+  .services-card {
+    padding: 1.5rem;
+  }
+
+  .practice-detail-actions {
+    flex-direction: column;
   }
 }

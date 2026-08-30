@@ -165,17 +165,30 @@
   font-weight: 500;
 }
 
-/* Responsive adjustments */
+/* --- MOBILE GRID COLLAPSE: TEAM MEMBER PROFILE --- */
 @media (max-width: 960px) {
   .team-member-layout {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
   }
+  
   .team-member__sidebar {
     position: static;
-    max-width: 400px;
+    max-width: 100%;
+    width: 100%;
+    order: -1; /* Puts the portrait and contact info above the bio */
   }
+
+  .team-member__portrait {
+    max-width: 400px;
+    margin: 0 auto 2rem auto; /* Centers the image on mobile */
+  }
+
   .team-member__credentials-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
   }
 }
