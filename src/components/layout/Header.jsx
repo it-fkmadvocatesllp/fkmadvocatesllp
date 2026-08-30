@@ -129,6 +129,20 @@ const Header = ({ isHome = false }) => {
               <span className="site-logo__tagline" style={{ color: 'var(--color-text-muted-on-dark)' }}>Legal Excellence</span>
             </span>
           </Link>
+          
+          {/* THE FIX: Add the Close Button back in */}
+          <button
+            type="button"
+            className="mobile-menu__close clickable"
+            onClick={closeMenu}
+            aria-label="Close menu"
+            style={{ 
+              background: 'none', border: 'none', color: 'var(--color-text-on-dark)', 
+              fontSize: '2.5rem', cursor: 'pointer', lineHeight: '1', padding: '0 0.5rem' 
+            }}
+          >
+            ×
+          </button>
         </div>
 
         <div className="mobile-menu__body">
