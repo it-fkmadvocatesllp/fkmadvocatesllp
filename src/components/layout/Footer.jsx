@@ -12,7 +12,7 @@ const Footer = () => (
           <Link to="/" className="site-logo clickable" onClick={typeof closeMenu !== 'undefined' ? closeMenu : undefined}>
             {/* Update the src to match the exact filename of the logo you put in your public folder */}
             <img 
-              src="public/fkm-logo-light.png" 
+              src="/fkm-logo-light.png" 
               alt="FKM Advocates LLP" 
               style={{ height: '40px', width: 'auto', display: 'block' }} 
             />

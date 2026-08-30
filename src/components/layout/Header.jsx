@@ -35,13 +35,13 @@ const Header = ({ isHome = false }) => {
     <>
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${isHome ? 'is-home' : ''}`}>
         <div className="site-header__inner">
-          <Link to="/" className="site-logo clickable" aria-label="FKM Advocates LLP home" onClick={closeMenu}>
-            <span className="site-logo__fkm">FKM</span>
-            <span className="site-logo__divider" aria-hidden="true" />
-            <span className="site-logo__text">
-              <span className="site-logo__name">Advocates LLP</span>
-              <span className="site-logo__tagline">Legal Excellence</span>
-            </span>
+          <Link to="/" className="site-logo clickable" onClick={typeof closeMenu !== 'undefined' ? closeMenu : undefined}>
+            {/* Update the src to match the exact filename of the logo you put in your public folder */}
+            <img 
+              src="/fkm-logo-light.png" 
+              alt="FKM Advocates LLP" 
+              style={{ height: '40px', width: 'auto', display: 'block' }} 
+            />
           </Link>
 
           {/* DESKTOP NAV */}
