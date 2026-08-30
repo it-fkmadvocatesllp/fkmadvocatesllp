@@ -23,24 +23,32 @@ const Footer = () => (
         <div>
           <h4 className="site-footer__heading">Visit Our Offices</h4>
           <div className="site-footer__text-block">
-            <p><strong>Nairobi HQ</strong><br />{firmInfo.address}<br />{firmInfo.addressDetail}</p>
-            <p style={{ marginTop: '1rem' }}><strong>Thika Branch</strong><br />{firmInfo.branch}</p>
+            <p>
+              <strong>Nairobi HQ</strong><br />
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Kenrail+Towers,+Off+Parklands+Rd,+Nairobi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="clickable"
+                style={{ color: 'var(--color-text-on-dark)', borderBottom: 'none' }}
+              >
+                {firmInfo.address}<br />{firmInfo.addressDetail}
+              </a>
+            </p>
+            <p style={{ marginTop: '1.5rem' }}>
+              <strong>Thika Branch</strong><br />
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=Thika+Business+Center,+Commercial+Street,+Nairobi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="clickable"
+                style={{ color: 'var(--color-text-on-dark)', borderBottom: 'none' }}
+              >
+                {firmInfo.branch}
+              </a>
+            </p>
           </div>
         </div>
-
-        {/* Column 3: Contact Us */}
-        <div>
-          <h4 className="site-footer__heading">Contact Us</h4>
-          <div className="site-footer__text-block">
-            <p>
-              <a href={`mailto:${firmInfo.email}`} className="clickable">{firmInfo.email}</a>
-            </p>
-            <p>
-              <a href={`tel:${firmInfo.phone.replace(/\s/g, '')}`} className="clickable">{firmInfo.phone}</a>
-            </p>
-          </div>
-        </div>
-      </div>
 
       {/* Bottom Legal Bar */}
       <div className="site-footer__bottom">
