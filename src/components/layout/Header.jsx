@@ -35,14 +35,24 @@ const Header = ({ isHome = false }) => {
     <>
       <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${isHome ? 'is-home' : ''}`}>
         <div className="site-header__inner">
-          <Link to="/" className="site-logo clickable" onClick={typeof closeMenu !== 'undefined' ? closeMenu : undefined}>
-            {/* Update the src to match the exact filename of the logo you put in your public folder */}
+          {/* Column 1: Brand & Logo (With Text Restored) */}
+        <div className="site-footer__brand">
+          <Link to="/" className="site-logo clickable" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img 
-              src="/fkm-logo-light.png" 
-              alt="FKM Advocates LLP" 
-              style={{ height: '40px', width: 'auto', display: 'block' }} 
+              src="/fkm-logo-light.png" /* Ensure this matches your logo filename */
+              alt="FKM Logo" 
+              style={{ height: '36px', width: 'auto', marginRight: '15px' }} 
             />
+            <span style={{ borderLeft: '1px solid var(--color-border-dark)', paddingLeft: '15px', display: 'flex', flexDirection: 'column' }}>
+              <span style={{ color: 'var(--color-text-on-dark)', fontSize: '1.1rem', fontWeight: '700', letterSpacing: '-0.01em' }}>
+                FKM Advocates LLP
+              </span>
+              <span style={{ color: 'var(--color-text-muted-on-dark)', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginTop: '2px' }}>
+                Legal Excellence
+              </span>
+            </span>
           </Link>
+        </div>
 
           {/* DESKTOP NAV */}
           <nav className="site-nav desktop-only" aria-label="Primary navigation">
@@ -121,14 +131,24 @@ const Header = ({ isHome = false }) => {
         role="dialog"
       >
         <div className="mobile-menu__header">
-          <Link to="/" className="site-logo clickable" onClick={typeof closeMenu !== 'undefined' ? closeMenu : undefined}>
-            {/* Update the src to match the exact filename of the logo you put in your public folder */}
+          {/* Column 1: Brand & Logo (With Text Restored) */}
+        <div className="site-footer__brand">
+          <Link to="/" className="site-logo clickable" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img 
-              src="public/fkm-logo-light.png" 
-              alt="FKM Advocates LLP" 
-              style={{ height: '40px', width: 'auto', display: 'block' }} 
+              src="/fkm-logo-light.png" /* Ensure this matches your logo filename */
+              alt="FKM Logo" 
+              style={{ height: '36px', width: 'auto', marginRight: '15px' }} 
             />
+            <span style={{ borderLeft: '1px solid var(--color-border-dark)', paddingLeft: '15px', display: 'flex', flexDirection: 'column' }}>
+              <span style={{ color: 'var(--color-text-on-dark)', fontSize: '1.1rem', fontWeight: '700', letterSpacing: '-0.01em' }}>
+                FKM Advocates LLP
+              </span>
+              <span style={{ color: 'var(--color-text-muted-on-dark)', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginTop: '2px' }}>
+                Legal Excellence
+              </span>
+            </span>
           </Link>
+        </div>
           
           {/* THE FIX: Add the Close Button back in */}
           <button
