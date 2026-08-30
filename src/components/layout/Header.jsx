@@ -121,13 +121,13 @@ const Header = ({ isHome = false }) => {
         role="dialog"
       >
         <div className="mobile-menu__header">
-          <Link to="/" className="site-logo clickable" aria-label="FKM Advocates LLP home" onClick={closeMenu}>
-            <span className="site-logo__fkm">FKM</span>
-            <span className="site-logo__divider" aria-hidden="true" />
-            <span className="site-logo__text">
-              <span className="site-logo__name" style={{ color: 'var(--color-text-on-dark)' }}>Advocates LLP</span>
-              <span className="site-logo__tagline" style={{ color: 'var(--color-text-muted-on-dark)' }}>Legal Excellence</span>
-            </span>
+          <Link to="/" className="site-logo clickable" onClick={typeof closeMenu !== 'undefined' ? closeMenu : undefined}>
+            {/* Update the src to match the exact filename of the logo you put in your public folder */}
+            <img 
+              src="/fkm-logo-light.svg" 
+              alt="FKM Advocates LLP" 
+              style={{ height: '40px', width: 'auto', display: 'block' }} 
+            />
           </Link>
           
           {/* THE FIX: Add the Close Button back in */}

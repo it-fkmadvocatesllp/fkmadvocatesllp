@@ -9,13 +9,13 @@ const Footer = () => (
       <div className="site-footer__grid">
         {/* Column 1: Brand & Logo */}
         <div className="site-footer__brand">
-          <Link to="/" className="site-logo clickable">
-            <span className="site-logo__fkm">FKM</span>
-            <span className="site-logo__divider" aria-hidden="true" />
-            <span className="site-logo__text">
-              <span className="site-logo__name">Advocates LLP</span>
-              <span className="site-logo__tagline">{firmInfo.tagline}</span>
-            </span>
+          <Link to="/" className="site-logo clickable" onClick={typeof closeMenu !== 'undefined' ? closeMenu : undefined}>
+            {/* Update the src to match the exact filename of the logo you put in your public folder */}
+            <img 
+              src="/fkm-logo-light.svg" 
+              alt="FKM Advocates LLP" 
+              style={{ height: '40px', width: 'auto', display: 'block' }} 
+            />
           </Link>
         </div>
 
