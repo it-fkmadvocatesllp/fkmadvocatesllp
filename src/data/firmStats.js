@@ -11,7 +11,7 @@ export const firmInfo = {
   description:
     'A Nairobi-based law firm focused on driving client success through precision counsel, strategic advocacy, and unwavering integrity across Kenya and East Africa.',
   founded: 2014,
-  phone: '+254 726883765',
+  phone: '+254 142919709',
   email: 'office@fkmadvocatesllp.com',
   address: 'Kenrail Towers, 3rd Floor, Southern Wing, Suite SW-3.3A',
   addressDetail: 'Mkungu Close, Off Parklands Rd, Nairobi',

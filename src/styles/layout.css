@@ -161,10 +161,24 @@
 
 /* --- FOOTER (Adra-Style 3-Column) --- */
 .site-footer {
-  background: var(--color-bg-dark); /* Charcoal Black */
+  /* Replace flat dark color with a rich, vibrant gradient */
+  background: linear-gradient(135deg, #0A2540 0%, #1E1B4B 100%);
   color: var(--color-text-on-dark);
   padding: 5rem 0 2rem;
-  border-top: 1px solid var(--color-border-dark);
+  
+  /* Remove the standard border for the glowing pseudo-element below */
+  border-top: none; 
+  position: relative;
+}
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  opacity: 0.7;
 }
 
 .site-footer__grid {
@@ -188,17 +202,15 @@
   line-height: 1.6;
 }
 
-.site-footer__text-block a {
-  color: var(--color-text-on-dark); /* Changed from purple to white for readability */
-  text-decoration: none;
-  border-bottom: 1px solid var(--color-accent); /* Adds a crisp purple underline */
-  padding-bottom: 2px;
+.site-footer__text-block a,
+.site-footer__legal a {
+  color: #E2E8F0; /* Brighter slate for better contrast */
   transition: all var(--transition);
 }
 
-.site-footer__text-block a:hover {
-  color: var(--color-accent);
-  border-bottom-color: transparent;
+.site-footer__text-block a:hover,
+.site-footer__legal a:hover {
+  color: var(--color-accent); /* Illuminates Tech Purple on hover */
 }
 
 .site-footer__bottom {
@@ -214,15 +226,6 @@
 .site-footer__legal {
   display: flex;
   gap: 1.5rem;
-}
-
-.site-footer__legal a {
-  color: var(--color-text-muted-on-dark);
-  text-decoration: none;
-}
-
-.site-footer__legal a:hover {
-  color: var(--color-text-on-dark);
 }
 
 /* Responsive */
