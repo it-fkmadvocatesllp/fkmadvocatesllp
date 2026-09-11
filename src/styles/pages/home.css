@@ -2,16 +2,11 @@
 
 .home-hero {
   position: relative;
-  height: 65vh;
-  min-height: 450px;
+  height: 65vh; 
+  min-height: 450px; 
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(18, 18, 18, 0.65), rgba(18, 18, 18, 0.8)), url('public/hero_image.jpeg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  
-  padding-top: var(--header-height, 100px);
+  padding-top: var(--header-height, 100px); 
 }
 
 .home-hero__content {

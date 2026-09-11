@@ -17,7 +17,16 @@ const HomePage = () => {
       />
 
       {/* 1. HERO */}
-      <section className="home-hero" data-cursor-theme="dark">
+      <section 
+        className="home-hero" 
+        data-cursor-theme="dark"
+        style={{
+          backgroundImage: "linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
         <HeroScene />
         <div className="home-hero__content reveal">
           <div className="home-hero__headline">
