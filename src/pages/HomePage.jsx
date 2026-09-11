@@ -19,19 +19,20 @@ const HomePage = () => {
       {/* 1. HERO */}
       <section 
         className="home-hero" 
-        data-cursor-theme="dark"
         style={{
-          backgroundImage: "linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('public/hero_image.jpeg')",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat"
+          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
         }}
       >
-        <HeroScene />
-        <div className="home-hero__content reveal">
-          <div className="home-hero__headline">
-            <h1>Your Legal Advantage in Kenya.</h1>
-          </div>
+        <div className="container reveal">
+           {/* Your existing hero content stays here */}
+           <div className="home-hero__headline">
+             <h1 className="stacked-headline text-white">
+               Your Legal<br />Advantage in<br />Kenya.
+             </h1>
+           </div>
           <div className="home-hero__actions">
             <Link to="/consultation" className="btn btn--primary clickable">Consult With Us</Link>
           </div>
