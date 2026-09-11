@@ -21,7 +21,7 @@ const HomePage = () => {
         className="home-hero" 
         data-cursor-theme="dark"
         style={{
-          backgroundImage: "linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')",
+          backgroundImage: "linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('public/hero_image.jpeg')",
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat"
