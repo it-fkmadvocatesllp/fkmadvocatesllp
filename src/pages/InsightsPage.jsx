@@ -19,7 +19,15 @@ const InsightsPage = () => {
         description="Read legal articles, press releases, and regulatory updates from FKM Advocates LLP. Stay informed on Kenyan law covering corporate governance, property, estate planning, and more."
         canonical="/insights"
       />
-      <section className="page-hero">
+      <section 
+        className="page-hero"
+        style={{
+          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+        >
         <div className="container reveal">
           <span className="kicker">Insights</span>
           <h1 className="stacked-headline">

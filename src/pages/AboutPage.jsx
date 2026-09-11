@@ -15,7 +15,15 @@ const AboutPage = () => {
         description="FKM Advocates LLP is a Kenyan law firm dedicated to delivering high-quality legal services to individuals, businesses, institutions, and investors across Kenya."
         canonical="/about"
       />
-      <section className="page-hero">
+      <section 
+        className="page-hero"
+        style={{
+            background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'
+          }}
+      >
         <div className="container reveal">
           <span className="kicker">About Us</span>
           <h1 className="stacked-headline">
