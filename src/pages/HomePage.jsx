@@ -4,6 +4,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import HeroScene from '../components/hero/HeroScene';
 import InsightsCarousel from '../components/sections/InsightsCarousel';
 import '../styles/pages/home.css';
+import { useState, useEffect } from 'react';
 
 const HomePage = () => {
   // Array of your hero images
