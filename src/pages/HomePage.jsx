@@ -1,13 +1,15 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import HeroScene from '../components/hero/HeroScene';
 import InsightsCarousel from '../components/sections/InsightsCarousel';
 import '../styles/pages/home.css';
-import { useState, useEffect } from 'react';
 
 const HomePage = () => {
-  // Array of your hero images
+  // 1. Initialize the missing scroll reveal ref
+  const containerRef = useScrollReveal('.reveal');
+
+  // 2. Hero images array
   const heroImages = [
     '/hero_image.jpeg', 
     '/nairobi.jpeg', 
@@ -33,32 +35,33 @@ const HomePage = () => {
         canonical="/"
       />
 
-      {/* 1. HERO */}
+      {/* 1. HERO SECTION */}
       <section 
         className="home-hero" 
         data-cursor-theme="dark"
         style={{
-          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('${heroImages[currentImg]}')`,
+          background: `linear-gradient(rgba(18, 18, 18, 0.45), rgba(18, 18, 18, 0.85)), url('${heroImages[currentImg]}')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
-          transition: 'background-image 1.5s ease-in-out' // Smooth crossfade animation
+          transition: 'background 1.2s ease-in-out'
         }}
       >
         <div className="container reveal">
-           {/* Your existing hero content stays here */}
-           <div className="home-hero__headline">
-             <h1 className="stacked-headline text-white">
-               Your Legal<br />Advantage in<br />Kenya.
-             </h1>
-           </div>
+          <div className="home-hero__headline">
+            <h1 className="stacked-headline text-white">
+              Your Legal<br />Advantage in<br />Kenya.
+            </h1>
+          </div>
           <div className="home-hero__actions">
-            <Link to="/consultation" className="btn btn--primary clickable">Consult With Us</Link>
+            <Link to="/consultation" className="btn btn--primary clickable">
+              Consult With Us
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 2. ADRA-STYLE BRIEF INTRO */}
+      {/* 2. INTRO SPLIT */}
       <section className="section intro-split">
         <div className="container">
           <div className="intro-split__grid reveal">
