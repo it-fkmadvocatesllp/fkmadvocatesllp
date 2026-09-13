@@ -13,7 +13,6 @@ const HomePage = () => {
   const heroImages = [
     '/hero_image.jpeg', 
     '/nairobi.jpeg', 
-    '/africa.jpeg', 
     '/world.jpeg'
   ];
   
