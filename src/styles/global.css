@@ -427,3 +427,31 @@ ul { list-style: none; }
     justify-content: center;
   }
 }
+/* --- CLIENT OVERRIDE: BODY BACKGROUND & PURPLE TEXT --- */
+
+.bg-light {
+  /* Replace the pure white background with the client's image */
+  background-image: url('/client-bg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Creates a modern parallax effect as they scroll */
+  
+  /* Force all text in these sections to be purple */
+  color: var(--color-purple-deep) !important;
+}
+
+/* Ensure the headings turn purple as well */
+.bg-light h1, 
+.bg-light h2, 
+.bg-light h3, 
+.bg-light h4, 
+.bg-light p, 
+.bg-light span {
+  color: var(--color-purple-deep) !important;
+}
+
+/* Update the Glass Cards (like Insights) so they stand out against the new background */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85) !important; /* Make cards slightly more opaque */
+  backdrop-filter: blur(16px);
+}

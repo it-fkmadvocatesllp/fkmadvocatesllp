@@ -6,7 +6,23 @@ import InsightsCarousel from '../components/sections/InsightsCarousel';
 import '../styles/pages/home.css';
 
 const HomePage = () => {
-  const containerRef = useScrollReveal('.reveal');
+  // Array of your hero images
+  const heroImages = [
+    '/hero_image.jpeg', 
+    '/nairobi.jpeg', 
+    '/africa.jpeg', 
+    '/world.jpeg'
+  ];
+  
+  const [currentImg, setCurrentImg] = useState(0);
+
+  // Automatically cycle the image every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   return (
     <div ref={containerRef}>
@@ -19,11 +35,13 @@ const HomePage = () => {
       {/* 1. HERO */}
       <section 
         className="home-hero" 
+        data-cursor-theme="dark"
         style={{
-          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
+          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('${heroImages[currentImg]}')`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
+          transition: 'background-image 1.5s ease-in-out' // Smooth crossfade animation
         }}
       >
         <div className="container reveal">
