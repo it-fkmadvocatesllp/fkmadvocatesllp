@@ -13,7 +13,7 @@ const HomePage = () => {
   const heroImages = [
     '/hero_image.jpeg', 
     '/nairobi.jpeg', 
-    '/world.jpeg'
+    '/global.jpeg'
   ];
   
   const [currentImg, setCurrentImg] = useState(0);
