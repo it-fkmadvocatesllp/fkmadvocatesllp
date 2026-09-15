@@ -13,12 +13,9 @@ const HomePage = () => {
   const heroImages = [
     '/hero_image.jpeg', 
     '/nairobi.jpeg', 
-    '/jungle.jpg',
-    '/sunset.jpg',
-    '/tree.jpg',
-    'nation.jpg',
-    'night.jpg',
-    'acacia.jpg',
+    '/nation.jpeg',
+    '/night.jpeg',
+    '/acacia.jpeg',
   ];
   
   const [currentImg, setCurrentImg] = useState(0);
