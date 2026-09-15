@@ -1,27 +1,93 @@
 /* src/styles/components/insights-carousel.css */
-
+/* --- SECTION & TITLE STYLING --- */
 .insights-section {
-  padding-bottom: 5rem 0 6rem;
-  background-color: #FFFFFF;
+  padding: 5rem 0 6rem;
+  background-color: #F9F8F6; /* Warm off-white/cream to match the Adra aesthetic */
 }
 
 .insights-section .section-title {
-  font-size: clamp(1.75rem, 3vw, 2.35rem) !important; /* Scales down the massive text */
+  font-size: clamp(1.75rem, 3vw, 2.35rem) !important;
   font-weight: 800 !important;
-  color: var(--color-bg-dark, #121212) !important; /* Forces it to pure Charcoal Black */
+  color: var(--color-bg-dark, #121212) !important;
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
-  text-align: left; /* Ensures it aligns perfectly with the cards below */
+  text-align: left;
 }
 
+/* --- CAROUSEL TRACK (Homepage) --- */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Hides scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hides scrollbar in IE/Edge */
+  padding: 0.5rem 0.25rem 2rem 0.25rem; /* Padding prevents card shadow from clipping */
+  scroll-behavior: smooth;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hides scrollbar in Chrome/Safari */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* CAROUSEL ARROWS */
+.carousel-arrow {
+  position: absolute;
+  top: 42%; /* Vertically centers over the image/text border */
+  transform: translateY(-50%);
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: 1.2rem;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: all var(--transition);
+}
+
+.carousel-arrow:hover {
+  background: var(--color-bg-dark);
+  color: #fff;
+  border-color: var(--color-bg-dark);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-arrow--left { left: -22px; }
+.carousel-arrow--right { right: -22px; }
+
+/* Hide arrows on touch devices where native swiping is better */
+@media (max-width: 768px) {
+  .carousel-arrow { display: none; }
+}
+
+
+/* --- GRID SPECIFIC (For the /insights page) --- */
 .insights-grid {
   display: grid;
-  /* CHANGE: Force 4 columns on desktop */
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
 }
 
+@media (max-width: 1200px) { .insights-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .insights-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .insights-grid { grid-template-columns: 1fr; } }
+
+
+/* --- SHARED CARD STYLING --- */
 .insight-card {
   display: flex;
   flex-direction: column;
@@ -33,10 +99,21 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Ensures carousel cards maintain width while sliding */
+.carousel-track .insight-card {
+  flex: 0 0 calc(25% - 1.125rem); /* 4 items visible on desktop */
+  min-width: 280px; 
+  scroll-snap-align: start;
+}
+
+@media (max-width: 1200px) { .carousel-track .insight-card { flex: 0 0 calc(33.333% - 1rem); } }
+@media (max-width: 900px) { .carousel-track .insight-card { flex: 0 0 calc(50% - 0.75rem); } }
+@media (max-width: 600px) { .carousel-track .insight-card { flex: 0 0 calc(100%); } }
+
 .insight-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  border-color: var(--color-accent);
+  border-color: transparent;
 }
 
 .insight-card__image-wrapper {
@@ -64,23 +141,24 @@
 }
 
 .insight-card__content {
-  padding: 1.25rem; /* Tighter padding */
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .insight-card__category {
-  font-size: 0.7rem; /* Scaled down */
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   color: var(--color-text-muted);
   margin-bottom: 0.75rem;
 }
 
 .insight-card__title {
-  font-size: 1.05rem; /* Scaled down to prevent massive text blocks */
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--color-bg-dark);
   line-height: 1.4;
   margin-bottom: 1.5rem;
@@ -93,21 +171,15 @@
 
 .insight-card__link {
   margin-top: auto;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-bg-dark);
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .insight-card:hover .insight-card__link {
   color: var(--color-accent);
-}
-
-/* Responsive Grid Collapsing */
-@media (max-width: 1024px) {
-  .insights-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-}
-
-@media (max-width: 600px) {
-  .insights-grid { grid-template-columns: 1fr; }
 }
