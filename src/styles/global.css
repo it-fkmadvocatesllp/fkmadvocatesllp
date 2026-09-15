@@ -471,3 +471,28 @@ ul { list-style: none; }
   background: rgba(255, 255, 255, 0.85) !important; /* Make cards slightly more opaque */
   backdrop-filter: blur(16px);
 }
+
+/* --- HERO CONTRAST FIX --- */
+/* Protects dark hero sections from the .bg-light purple text override */
+.page-hero.bg-dark,
+.page-hero.bg-dark h1,
+.page-hero.bg-dark h2,
+.page-hero.bg-dark h3,
+.page-hero.bg-dark p,
+.page-hero.bg-dark span,
+.page-hero.bg-dark .author-name {
+  color: #FFFFFF !important;
+}
+
+/* Restore the vibrant Tech Purple specifically for the category kicker */
+.page-hero.bg-dark .article-category,
+.page-hero.bg-dark .kicker {
+  color: var(--color-accent) !important; 
+}
+
+/* Restore readability for the author/date metadata */
+.page-hero.bg-dark .article-meta,
+.page-hero.bg-dark .article-date,
+.page-hero.bg-dark .meta-divider {
+  color: rgba(255, 255, 255, 0.75) !important; 
+}

@@ -6,12 +6,12 @@
 }
 
 .insights-section .section-title {
-  font-size: clamp(1.75rem, 3vw, 2.35rem) !important;
+  font-size: clamp(1.75rem, 3vw, 2.35rem) !important; /* Scales down the massive text */
   font-weight: 800 !important;
-  color: var(--color-bg-dark, #121212) !important; /* Pure Charcoal Black */
+  color: var(--color-bg-dark, #121212) !important; /* Forces it to pure Charcoal Black */
   letter-spacing: -0.02em;
-  line-height: 1.25;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2rem;
+  text-align: left; /* Ensures it aligns perfectly with the cards below */
 }
 
 .insights-grid {
