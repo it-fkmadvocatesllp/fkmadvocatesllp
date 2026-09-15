@@ -1,16 +1,16 @@
 /* src/styles/components/insights-carousel.css */
 /* --- SECTION & TITLE STYLING --- */
 .insights-section {
-  padding: 5rem 0 6rem;
+  padding: 3.5rem 0 4rem;
   background-color: #F9F8F6; /* Warm off-white/cream to match the Adra aesthetic */
 }
 
 .insights-section .section-title {
-  font-size: clamp(1.75rem, 3vw, 2.35rem) !important;
-  font-weight: 800 !important;
+  font-size: clamp(1.75rem, 3vw, 2rem) !important;
+  font-weight: 700 !important;
   color: var(--color-bg-dark, #121212) !important;
   letter-spacing: -0.02em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-align: left;
 }
 
@@ -102,7 +102,7 @@
 /* Ensures carousel cards maintain width while sliding */
 .carousel-track .insight-card {
   flex: 0 0 calc(25% - 1.125rem); /* 4 items visible on desktop */
-  min-width: 280px; 
+  min-width: 240px; 
   scroll-snap-align: start;
 }
 
@@ -141,19 +141,19 @@
 }
 
 .insight-card__content {
-  padding: 1.5rem;
+  padding: 1.15rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .insight-card__category {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-text-muted);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .insight-card__title {
@@ -171,7 +171,7 @@
 
 .insight-card__link {
   margin-top: auto;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--color-bg-dark);
   transition: color 0.3s ease;
