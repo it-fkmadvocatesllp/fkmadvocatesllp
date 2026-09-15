@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { insights, insightCategories } from '../data/insights';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import '../../components/sections/InsightsCarousel.css';
+import '../components/sections/InsightsCarousel.css';
 
 const InsightsPage = () => {
   const containerRef = useScrollReveal('.reveal');
