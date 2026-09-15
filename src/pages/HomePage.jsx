@@ -47,11 +47,6 @@ const HomePage = () => {
         }}
       >
         <div className="container reveal">
-          <div className="home-hero__headline">
-            <h1 className="stacked-headline text-white">
-              YOUR LEGAL<br />ADVANTAGE IN<br />KENYA.
-            </h1>
-          </div>
           <div className="home-hero__actions">
             <Link to="/consultation" className="btn btn--primary clickable">
               Consult With Us
