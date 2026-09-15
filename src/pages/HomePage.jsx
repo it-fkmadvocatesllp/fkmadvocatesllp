@@ -16,9 +16,9 @@ const HomePage = () => {
     '/jungle.jpg',
     '/sunset.jpg',
     '/tree.jpg',
-    'nation',
-    'night',
-    'acacia',
+    'nation.jpg',
+    'night.jpg',
+    'acacia.jpg',
   ];
   
   const [currentImg, setCurrentImg] = useState(0);
