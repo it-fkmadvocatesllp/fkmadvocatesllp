@@ -42,7 +42,7 @@ const HomePage = () => {
         data-cursor-theme="dark"
         style={{
           background: `linear-gradient(rgba(18, 18, 18, 0.45), rgba(18, 18, 18, 0.85)), url('${heroImages[currentImg]}')`,
-          backgroundPosition: 'top center',
+          backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           transition: 'background 1.2s ease-in-out'
