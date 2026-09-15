@@ -29,7 +29,15 @@ const InsightDetailPage = () => {
       />
 
       {/* DARK HERO - Protects the white navigation menu */}
-      <section className="page-hero bg-dark" style={{ backgroundColor: '#121212', textAlign: 'left', paddingBottom: '5rem' }}>
+      <section 
+        className="page-hero"
+        style={{
+          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container reveal">
           <span className="article-category" style={{ color: 'var(--color-accent)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
             {insight.category || 'Legal Updates'}
