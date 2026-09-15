@@ -1,11 +1,14 @@
+/* src/styles/components/insights-carousel.css */
+
 .insights-section {
   padding-bottom: 6rem;
 }
 
 .insights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  /* CHANGE: Force 4 columns on desktop */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
@@ -14,7 +17,7 @@
   flex-direction: column;
   background: #FFFFFF;
   border: 1px solid var(--color-border);
-  border-radius: 4px; /* Slight rounding, keep it sharp */
+  border-radius: 4px;
   overflow: hidden;
   text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -28,7 +31,7 @@
 
 .insight-card__image-wrapper {
   width: 100%;
-  aspect-ratio: 16 / 9; /* Creates a uniform landscape image block */
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background-color: var(--color-bg-dark);
   border-bottom: 3px solid transparent;
@@ -47,18 +50,19 @@
 }
 
 .insight-card:hover .insight-card__image-wrapper img {
-  transform: scale(1.05); /* Subtle zoom on hover */
+  transform: scale(1.05);
 }
 
 .insight-card__content {
-  padding: 1.5rem;
+  padding: 1.25rem; /* Tighter padding */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .insight-card__category {
-  font-size: 0.75rem;
+  font-size: 0.7rem; /* Scaled down */
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
@@ -66,7 +70,7 @@
 }
 
 .insight-card__title {
-  font-size: 1.15rem;
+  font-size: 1.05rem; /* Scaled down to prevent massive text blocks */
   color: var(--color-bg-dark);
   line-height: 1.4;
   margin-bottom: 1.5rem;
@@ -78,8 +82,8 @@
 }
 
 .insight-card__link {
-  margin-top: auto; /* Pushes link to the absolute bottom of the card */
-  font-size: 0.85rem;
+  margin-top: auto;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--color-bg-dark);
   transition: color 0.3s ease;
@@ -89,8 +93,9 @@
   color: var(--color-accent);
 }
 
+/* Responsive Grid Collapsing */
 @media (max-width: 1024px) {
-  .insights-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .insights-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
 }
 
 @media (max-width: 600px) {

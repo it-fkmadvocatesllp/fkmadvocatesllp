@@ -6,7 +6,8 @@ import '../../components/sections/InsightsCarousel.css';
 
 const InsightsCarousel = () => {
   const containerRef = useScrollReveal('.reveal');
-  const recentInsights = insights.slice(0, 3);
+  // CHANGE: Pull the 4 most recent insights
+  const recentInsights = insights.slice(0, 4);
 
   return (
     <section ref={containerRef} className="section bg-light insights-section">
@@ -16,13 +17,9 @@ const InsightsCarousel = () => {
         <div className="insights-grid">
           {recentInsights.map((post) => (
             <Link key={post.slug} to={`/insights/${post.slug}`} className="insight-card clickable">
-              {/* IMAGE HEADER */}
               <div className="insight-card__image-wrapper">
-                {/* Falls back to your hero image if the specific post doesn't have an image mapped yet */}
                 <img src={post.image || '/hero_image.jpeg'} alt={post.title} loading="lazy" />
               </div>
-              
-              {/* CONTENT BODY */}
               <div className="insight-card__content">
                 <span className="insight-card__category">{post.category || 'Articles'}</span>
                 <h3 className="insight-card__title">{post.title}</h3>

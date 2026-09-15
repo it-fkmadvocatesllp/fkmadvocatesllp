@@ -7,39 +7,53 @@ const InsightDetailPage = () => {
   const { slug } = useParams();
   const insight = getInsightBySlug(slug);
 
-  if (!insight) return <Navigate to="/" replace />;
+  if (!insight) return <Navigate to="/insights" replace />;
 
-  // Generates a dummy avatar based on author name if an image isn't provided
   const avatarUrl = insight.authorImage || `https://ui-avatars.com/api/?name=${insight.author || 'FKM'}&background=1E1B4B&color=fff`;
+
+  // Safe sharing functions to prevent Clipboard API crashes
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  
+  const shareLinks = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(insight.title)}`,
+    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(insight.title)}`
+  };
 
   return (
     <div className="insight-detail-page bg-light">
       <SEO
         title={`${insight.title} | FKM Advocates LLP`}
-        description={insight.excerpt || `Read about ${insight.title}`}
+        description={insight.excerpt}
         canonical={`/insights/${insight.slug}`}
       />
 
-      <article className="article-container">
-        {/* EDITORIAL HEADER */}
-        <header className="article-header">
-          <span className="article-category">{insight.category || 'Legal Updates'}</span>
-          <h1 className="article-title">{insight.title}</h1>
+      {/* DARK HERO - Protects the white navigation menu */}
+      <section className="page-hero bg-dark" style={{ backgroundColor: '#121212', textAlign: 'left', paddingBottom: '5rem' }}>
+        <div className="container reveal">
+          <span className="article-category" style={{ color: 'var(--color-accent)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            {insight.category || 'Legal Updates'}
+          </span>
+          <h1 className="stacked-headline text-white" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginTop: '1rem', marginBottom: '2rem' }}>
+            {insight.title}
+          </h1>
           
-          <div className="article-meta">
-            <div className="article-meta__author">
-              <img src={avatarUrl} alt="Author avatar" className="author-avatar" />
-              <span className="author-name">{insight.author || 'FKM Advocates LLP'}</span>
+          <div className="article-meta" style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: 'var(--color-text-muted-on-dark)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <img src={avatarUrl} alt="Author" style={{ width: '36px', height: '36px', borderRadius: '50%' }} />
+              <span style={{ fontWeight: '600', color: '#fff' }}>{insight.author || 'FKM Advocates LLP'}</span>
             </div>
-            <span className="meta-divider">|</span>
-            <span className="article-date">{insight.date || 'August 2026'}</span>
+            <span>|</span>
+            <span>{insight.date || 'August 2026'}</span>
           </div>
-        </header>
+        </div>
+      </section>
 
-        {/* ARTICLE CONTENT */}
+      {/* READING CONTAINER */}
+      <article className="article-container reveal" style={{ marginTop: '-3rem', position: 'relative', zIndex: 10 }}>
+        
         <div className="article-body">
           {insight.content ? (
-            // Handles both array mapping and raw strings so it doesn't crash
             Array.isArray(insight.content) ? (
               insight.content.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
@@ -52,24 +66,22 @@ const InsightDetailPage = () => {
           )}
         </div>
 
-        {/* SHARE SECTION */}
+        {/* SAFE SHARE SECTION */}
         <div className="article-share">
           <span className="share-text">Share the article:</span>
           <div className="share-buttons">
-            <button className="share-btn share-facebook clickable">Facebook</button>
-            <button className="share-btn share-x clickable">X</button>
-            <button className="share-btn share-linkedin clickable">LinkedIn</button>
+            <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer" className="share-btn share-facebook clickable">Facebook</a>
+            <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer" className="share-btn share-x clickable">X</a>
+            <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer" className="share-btn share-linkedin clickable">LinkedIn</a>
           </div>
         </div>
 
-        {/* LEGAL DISCLAIMER */}
         <div className="article-disclaimer">
-          <strong>Disclaimer:</strong> The information contained in this article is of a general nature and is not intended to address the circumstances of any particular individual or entity. While the information is accurate as at date hereof, there can be no guarantee that the information is accurate as of the date it is received or that it will continue to be accurate in the future. No one should act upon such information without appropriate professional advice after a thorough examination of the particular situation.
+          <strong>Disclaimer:</strong> The information contained in this article is of a general nature and is not intended to address the circumstances of any particular individual or entity. While the information is accurate as at date hereof, there can be no guarantee that the information is accurate as of the date it is received or that it will continue to be accurate in the future.
         </div>
 
-        {/* BOTTOM NAVIGATION */}
         <div className="article-footer-nav">
-          <Link to="/" className="btn btn--outline clickable">&larr; Back to Home</Link>
+          <Link to="/insights" className="btn btn--outline clickable">&larr; Back to Insights</Link>
         </div>
       </article>
     </div>
