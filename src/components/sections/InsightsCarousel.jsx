@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 // Ensure this path points to your actual insights data file
-import { insights } from '../../data/insights'; 
+import { insights } from '../../data/insights.js'; 
 import { useScrollReveal } from '../../hooks/useScrollReveal';
-import 'src/components/sections/InsightsCarousel.css';
+import '../../components/sections/InsightsCarousel.css';
 
 const InsightsCarousel = () => {
   const containerRef = useScrollReveal('.reveal');
