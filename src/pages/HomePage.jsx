@@ -16,6 +16,9 @@ const HomePage = () => {
     '/jungle.jpg',
     '/sunset.jpg',
     '/tree.jpg',
+    'nation',
+    'night',
+    'acacia',
   ];
   
   const [currentImg, setCurrentImg] = useState(0);
@@ -42,8 +45,8 @@ const HomePage = () => {
         data-cursor-theme="dark"
         style={{
           background: `linear-gradient(rgba(18, 18, 18, 0.45), rgba(18, 18, 18, 0.85)), url('${heroImages[currentImg]}')`,
-          backgroundPosition: 'center',
-          backgroundSize: 'contain',
+          backgroundPosition: 'top center',
+          backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           transition: 'background 1.2s ease-in-out'
         }}
