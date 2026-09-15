@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useRef } from "react";
 // Ensure this path points to your actual insights data file
 import { insights } from '../../data/insights.js'; 
 import { useScrollReveal } from '../../hooks/useScrollReveal';
