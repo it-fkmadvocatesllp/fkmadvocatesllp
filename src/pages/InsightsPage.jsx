@@ -23,7 +23,15 @@ const InsightsPage = () => {
       />
 
       {/* DARK HERO */}
-      <section className="page-hero bg-dark" style={{ backgroundColor: '#121212' }}>
+      <section 
+        className="page-hero"
+        style={{
+          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container reveal">
           <span className="kicker">Knowledge Hub</span>
           <div className="hero-headline-wrapper">
