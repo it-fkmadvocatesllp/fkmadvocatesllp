@@ -27,7 +27,7 @@ export const insights = [
     readTime: '10 min',
     date: 'July 22, 2026',
     author: 'Joseph Mwichigi',
-    authorImage: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop',
+    authorImage: 'https://ui-avatars.com/api/?name=FKM&background=1E1B4B&color=fff',
     image: 'https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?q=80&w=1200&auto=format&fit=crop',
     excerpt: 'Strategic approaches to wealth preservation, trusts, and succession planning for Kenyan families.',
     content: [
