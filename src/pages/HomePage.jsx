@@ -13,9 +13,9 @@ const HomePage = () => {
   const heroImages = [
     '/hero_image.jpeg', 
     '/nairobi.jpeg', 
-    'https://unsplash.com/photos/tree-between-green-land-during-golden-hour-T-LfvX-7IVg',
-    'https://unsplash.com/photos/giraffe-walking-on-golden-savanna-fzsJesR92jE',
-    'https://unsplash.com/photos/brown-bare-trees-on-green-grass-field-during-daytime-mMQPh3gInCQ',
+    '/jungle.jpg',
+    '/sunset.jpg',
+    '/tree.jpg',
   ];
   
   const [currentImg, setCurrentImg] = useState(0);
