@@ -49,7 +49,7 @@ const HomePage = () => {
         <div className="container reveal">
           <div className="home-hero__headline">
             <h1 className="stacked-headline text-white">
-              Your Legal<br />Advantage in<br />Kenya.
+              YOUR LEGAL<br />ADVANTAGE IN<br />KENYA.
             </h1>
           </div>
           <div className="home-hero__actions">

@@ -430,24 +430,40 @@ ul { list-style: none; }
 /* --- CLIENT OVERRIDE: BODY BACKGROUND & PURPLE TEXT --- */
 
 .bg-light {
-  /* Replace the pure white background with the client's image */
-  background-image: url('/client-bg.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Creates a modern parallax effect as they scroll */
-  
-  /* Force all text in these sections to be purple */
-  color: var(--color-purple-deep) !important;
+  background-color: #FAFAFA;
 }
 
-/* Ensure the headings turn purple as well */
-.bg-light h1, 
-.bg-light h2, 
-.bg-light h3, 
-.bg-light h4, 
-.bg-light p, 
-.bg-light span {
-  color: var(--color-purple-deep) !important;
+/* Ensure all heroes and dark sections ALWAYS have crisp white text */
+.page-hero,
+.page-hero h1,
+.page-hero h2,
+.page-hero .stacked-headline,
+.page-hero span,
+.page-hero p,
+.section--dark,
+.section--dark h1,
+.section--dark h2,
+.section--dark h3,
+.section--dark p,
+.section--dark span {
+  color: #FFFFFF !important;
+}
+
+/* Category kicker inside page-heroes */
+.page-hero .article-category,
+.page-hero .kicker {
+  color: var(--color-accent) !important; /* Vibrant Tech Purple */
+}
+
+/* Author & date metadata in heroes */
+.page-hero .article-meta,
+.page-hero .article-meta span {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.page-hero .article-meta strong,
+.page-hero .author-name {
+  color: #FFFFFF !important;
 }
 
 /* Update the Glass Cards (like Insights) so they stand out against the new background */

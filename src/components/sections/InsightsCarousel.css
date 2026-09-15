@@ -1,7 +1,17 @@
 /* src/styles/components/insights-carousel.css */
 
 .insights-section {
-  padding-bottom: 6rem;
+  padding-bottom: 5rem 0 6rem;
+  background-color: #FFFFFF;
+}
+
+.insights-section .section-title {
+  font-size: clamp(1.75rem, 3vw, 2.35rem) !important;
+  font-weight: 800 !important;
+  color: var(--color-bg-dark, #121212) !important; /* Pure Charcoal Black */
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 2.25rem;
 }
 
 .insights-grid {

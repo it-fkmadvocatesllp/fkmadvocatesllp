@@ -30,29 +30,28 @@ const InsightDetailPage = () => {
 
       {/* DARK HERO - Protects the white navigation menu */}
       <section 
-        className="page-hero"
-        style={{
-          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat'
+        className="page-hero bg-dark" 
+        style={{ 
+          backgroundColor: '#121212', 
+          textAlign: 'left', 
+          padding: 'calc(var(--header-height, 100px) + 3rem) 0 5rem' 
         }}
       >
         <div className="container reveal">
-          <span className="article-category" style={{ color: 'var(--color-accent)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+          <span className="article-category">
             {insight.category || 'Legal Updates'}
           </span>
-          <h1 className="stacked-headline text-white" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginTop: '1rem', marginBottom: '2rem' }}>
+          <h1 className="stacked-headline" style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', margin: '1rem 0 1.5rem', lineHeight: 1.15 }}>
             {insight.title}
           </h1>
           
-          <div className="article-meta" style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: 'var(--color-text-muted-on-dark)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <img src={avatarUrl} alt="Author" style={{ width: '36px', height: '36px', borderRadius: '50%' }} />
-              <span style={{ fontWeight: '600', color: '#fff' }}>{insight.author || 'FKM Advocates LLP'}</span>
+          <div className="article-meta">
+            <div className="article-meta__author">
+              <img src={avatarUrl} alt="Author" className="author-avatar" />
+              <span className="author-name">{insight.author || 'FKM Advocates LLP'}</span>
             </div>
-            <span>|</span>
-            <span>{insight.date || 'August 2026'}</span>
+            <span className="meta-divider">|</span>
+            <span className="article-date">{insight.date || 'August 2026'}</span>
           </div>
         </div>
       </section>
