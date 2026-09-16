@@ -12,7 +12,7 @@ export const teamMembers = [
     title: 'Managing Partner',
     role: 'Partner',
     // ADDED MISSING FIELDS FOR THE UI:
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop', // Replace with actual image path in public/ folder
+    image: 'public/mwichigi.jpeg', // Replace with actual image path in public/ folder
     email: 'mwichigi@fkmadvocatesllp.com',
     linkedin: 'https://www.linkedin.com/', 
     admissions: [
