@@ -1,6 +1,8 @@
+// src/data/team.js
+
 export const teamFilters = {
-  strategy: ['Corporate & Commercial', 'Estate & Probate', 'Litigation', 'Real Estate', 'Leadership'],
-  role: ['Partner', 'Senior Associate', 'Associate', 'Counsel'],
+  strategy: ['Corporate & Commercial', 'Estate & Probate', 'Litigation', 'Real Estate', 'Leadership', 'Administration'],
+  role: ['Partner', 'Senior Associate', 'Associate', 'Counsel', 'Legal Admin'],
   office: ['Nairobi', 'Thika'],
 };
 
@@ -11,8 +13,7 @@ export const teamMembers = [
     name: 'Joseph Mwichigi',
     title: 'Managing Partner',
     role: 'Partner',
-    // ADDED MISSING FIELDS FOR THE UI:
-    image: 'public/mwichigi.jpeg', // Replace with actual image path in public/ folder
+    image: '/mwichigi.jpeg', 
     email: 'mwichigi@fkmadvocatesllp.com',
     linkedin: 'https://www.linkedin.com/', 
     admissions: [
@@ -22,7 +23,6 @@ export const teamMembers = [
     strategy: ['Leadership', 'Corporate & Commercial'],
     office: 'Nairobi',
     initials: 'JM',
-    // CHANGED BIO FROM STRING TO ARRAY:
     bio: [
       'Joseph Mwichigi is an advocate with experience in commercial law, litigation, employment law, and dispute resolution.',
       'He has advised individuals, businesses, and institutions on complex legal matters requiring strategic and practical solutions.'
@@ -38,7 +38,35 @@ export const teamMembers = [
       'Postgraduate Diploma in Law – Kenya School of Law',
     ],
   },
-  // Add other team members here following this exact format...
+  {
+    id: 2,
+    slug: 'naomi-wanjiru-wainaina',
+    name: 'Naomi Wanjiru Wainaina',
+    title: 'Legal Administrator',
+    role: 'Legal Admin',
+    // Make sure to add her image to the public/ folder with this exact name:
+    image: '/wainaina.jpeg', 
+    email: 'naomi@fkmadvocatesllp.com', // Placeholder
+    linkedin: 'https://www.linkedin.com/', // Placeholder
+    admissions: [
+      'Professional affiliations will be updated here.' // Placeholder
+    ],
+    strategy: ['Administration'],
+    office: 'Nairobi', // Placeholder
+    initials: 'NW',
+    bio: [
+      'Naomi Wanjiru Wainaina serves as the Legal Administrator at FKM Advocates LLP, ensuring smooth and efficient day-to-day operations across the firm.',
+      '[More detailed biography information will be updated here once provided.]'
+    ],
+    practiceAreas: [
+      'Firm Operations',
+      'Client Relations',
+      'Administrative Management'
+    ],
+    education: [
+      '[Degree Name] – [University Name]', // Placeholder
+    ],
+  }
 ];
 
 export const getTeamMemberBySlug = (slug) => teamMembers.find((m) => m.slug === slug);
