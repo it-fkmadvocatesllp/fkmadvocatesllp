@@ -66,7 +66,7 @@ export const teamMembers = [
     education: [
       '[Degree Name] – [University Name]', // Placeholder
     ],
-  }
+  },
   {
     id: 3,
     slug: 'jane-waweru',
