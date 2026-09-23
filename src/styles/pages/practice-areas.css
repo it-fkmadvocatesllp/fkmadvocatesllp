@@ -1,0 +1,175 @@
+/* src/styles/pages/practice-areas.css */
+
+.bg-dark {
+  background-color: var(--color-bg-dark);
+}
+
+.bg-light {
+  background-color: #FFFFFF;
+}
+
+.text-white {
+  color: var(--color-text-on-dark);
+}
+
+.hero-headline-wrapper {
+  margin-top: 1rem;
+}
+
+/* --- TABBED LAYOUT GRID --- */
+.practice-tabs-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 4rem;
+  align-items: start;
+  padding-top: 2rem;
+}
+
+/* --- SIDEBAR TABS --- */
+.practice-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-left: 2px solid var(--color-border);
+}
+
+.practice-tab-btn {
+  text-align: left;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  border-left: 2px solid transparent;
+  margin-left: -2px; /* Overlaps the container border */
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.practice-tab-btn:hover {
+  color: var(--color-text);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.practice-tab-btn.is-active {
+  color: var(--color-accent);
+  font-weight: 700;
+  border-left-color: var(--color-accent);
+  background: var(--color-purple-light);
+}
+
+/* --- CONTENT CARD --- */
+.practice-content-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 3.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.practice-content__title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-bg-dark);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.practice-content__desc {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.practice-content__features h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.practice-content__features ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.practice-content__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.feature-bullet {
+  color: var(--color-accent);
+  font-weight: 800;
+}
+
+.practice-content__approach {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.practice-content__actions {
+  display: flex;
+  gap: 1rem;
+}
+/* --- MOBILE GRID COLLAPSE: PRACTICE AREAS --- */
+@media (max-width: 960px) {
+  .practice-tabs-layout {
+    grid-template-columns: 1fr; /* Collapse to 1 column */
+    gap: 2rem;
+  }
+  
+  /* Convert vertical sidebar to horizontal scrolling tabs */
+  .practice-sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    border-left: none;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    /* Hide scrollbar for cleaner UI */
+    scrollbar-width: none; 
+  }
+  
+  .practice-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .practice-tab-btn {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    margin-left: 0;
+    margin-bottom: -2px; /* Overlap the bottom border */
+    white-space: nowrap; /* Prevent text from wrapping */
+    padding: 1rem;
+  }
+
+  .practice-tab-btn.is-active {
+    border-left-color: transparent;
+    border-bottom-color: var(--color-accent);
+  }
+
+  .practice-content-card {
+    padding: 2rem 1.5rem; /* Less padding inside the card on mobile */
+  }
+
+  .practice-content__features ul {
+    grid-template-columns: 1fr; /* Stack the features list */
+  }
+  
+  .practice-content__actions {
+    flex-direction: column;
+  }
+}

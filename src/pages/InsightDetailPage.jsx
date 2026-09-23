@@ -1,84 +1,97 @@
-import { Link, useParams, Navigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-import { getInsightBySlug } from '../data/insights';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
-
-const SITE_URL = 'https://fkmadvocatesllp.com';
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
-
-const stripHtml = (html) => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+import { getInsightBySlug } from '../data/insights';
+import '../styles/pages/insight-detail.css';
 
 const InsightDetailPage = () => {
   const { slug } = useParams();
-  const article = getInsightBySlug(slug);
+  const insight = getInsightBySlug(slug);
 
-  if (!article) return <Navigate to="/insights" replace />;
+  if (!insight) return <Navigate to="/insights" replace />;
 
-  const canonicalUrl = `${SITE_URL}/insights/${article.slug}`;
+  const avatarUrl = insight.authorImage || `https://ui-avatars.com/api/?name=${insight.author || 'FKM'}&background=1E1B4B&color=fff`;
 
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: article.title,
-    description: article.excerpt,
-    datePublished: article.date,
-    dateModified: article.date,
-    image: DEFAULT_IMAGE,
-    url: canonicalUrl,
-    articleBody: stripHtml(article.content),
-    author: {
-      '@type': 'Organization',
-      name: article.author,
-      url: SITE_URL,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'FKM Advocates LLP',
-      url: SITE_URL,
-      logo: {
-        '@type': 'ImageObject',
-        url: DEFAULT_IMAGE,
-      },
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': canonicalUrl,
-    },
+  // Safe sharing functions to prevent Clipboard API crashes
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  
+  const shareLinks = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(insight.title)}`,
+    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(insight.title)}`
   };
 
   return (
-    <article>
+    <div className="insight-detail-page bg-light">
       <SEO
-        title={article.title}
-        description={article.excerpt}
-        canonical={`/insights/${article.slug}`}
-        type="article"
+        title={`${insight.title} | FKM Advocates LLP`}
+        description={insight.excerpt}
+        canonical={`/insights/${insight.slug}`}
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(schema)}</script>
-      </Helmet>
 
-      <section className="page-hero">
+      {/* DARK HERO - Protects the white navigation menu */}
+      <section 
+        className="page-hero bg-dark" 
+        style={{ 
+          backgroundColor: '#121212', 
+          textAlign: 'left', 
+          padding: 'calc(var(--header-height, 100px) + 3rem) 0 5rem' 
+        }}
+      >
         <div className="container reveal">
-          <span className="kicker">{article.category}</span>
-          <h1 className="section-title" style={{ maxWidth: '800px', margin: '0 auto' }}>{article.title}</h1>
-          <p style={{ color: 'var(--color-text-muted)', marginTop: '1rem' }}>{article.date} · {article.readTime}</p>
+          <span className="article-category">
+            {insight.category || 'Legal Updates'}
+          </span>
+          <h1 className="stacked-headline" style={{ fontSize: 'clamp(2rem, 5vw, 3.25rem)', margin: '1rem 0 1.5rem', lineHeight: 1.15 }}>
+            {insight.title}
+          </h1>
+          
+          <div className="article-meta">
+            <div className="article-meta__author">
+              <img src={avatarUrl} alt="Author" className="author-avatar" />
+              <span className="author-name">{insight.author || 'FKM Advocates LLP'}</span>
+            </div>
+            <span className="meta-divider">|</span>
+            <span className="article-date">{insight.date || 'August 2026'}</span>
+          </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <div
-            className="reveal"
-            style={{ lineHeight: 1.8, color: 'var(--color-text-secondary)' }}
-            dangerouslySetInnerHTML={{ __html: article.content }}
-          />
-          <Link to="/insights" className="btn btn--outline clickable" style={{ marginTop: '3rem' }}>
-            ← Back to Insights
-          </Link>
+      {/* READING CONTAINER */}
+      <article className="article-container reveal" style={{ marginTop: '-3rem', position: 'relative', zIndex: 10 }}>
+        
+        <div className="article-body">
+          {insight.content ? (
+            Array.isArray(insight.content) ? (
+              insight.content.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))
+            ) : (
+              <p>{insight.content}</p>
+            )
+          ) : (
+            <p>Article content is currently being updated.</p>
+          )}
         </div>
-      </section>
-    </article>
+
+        {/* SAFE SHARE SECTION */}
+        <div className="article-share">
+          <span className="share-text">Share the article:</span>
+          <div className="share-buttons">
+            <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer" className="share-btn share-facebook clickable">Facebook</a>
+            <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer" className="share-btn share-x clickable">X</a>
+            <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer" className="share-btn share-linkedin clickable">LinkedIn</a>
+          </div>
+        </div>
+
+        <div className="article-disclaimer">
+          <strong>Disclaimer:</strong> The information contained in this article is of a general nature and is not intended to address the circumstances of any particular individual or entity. While the information is accurate as at date hereof, there can be no guarantee that the information is accurate as of the date it is received or that it will continue to be accurate in the future.
+        </div>
+
+        <div className="article-footer-nav">
+          <Link to="/insights" className="btn btn--outline clickable">&larr; Back to Insights</Link>
+        </div>
+      </article>
+    </div>
   );
 };
 

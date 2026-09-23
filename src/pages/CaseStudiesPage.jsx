@@ -35,7 +35,15 @@ const OurProcessPage = () => {
         description="Understand how FKM Advocates LLP works with clients — from initial consultation through case assessment, strategy development, and resolution."
         canonical="/our-process"
       />
-      <section className="page-hero">
+      <section 
+        className="page-hero"
+        style={{
+          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container reveal">
           <span className="kicker">How We Work</span>
           <h1 className="stacked-headline">

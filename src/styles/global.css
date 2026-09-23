@@ -1,10 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+/* 1. Import Inter for both Display and Body */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import './tokens.css';
 
-*,
-*::before,
-*::after {
+/* COMPLETE RESET - This fixes the white border issue */
+*, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
@@ -22,34 +30,43 @@ html {
   html { font-size: 14px; }
 }
 
-html.has-custom-cursor,
-html.has-custom-cursor body,
-html.has-custom-cursor a,
-html.has-custom-cursor button,
-html.has-custom-cursor input,
-html.has-custom-cursor select,
-html.has-custom-cursor textarea,
-html.has-custom-cursor [role="button"] {
-  cursor: none !important;
-}
 
 html {
   overflow-x: hidden;
 }
 
+/* 2. Base Body Typography */
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-body);
+  font-family: var(--font-body); /* Now mapped to Inter in tokens.css */
   width: 100%;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; /* Adds extra crispness on Mac */
 }
 
+/* 3. Heading Typography (The Innovator Look) */
 h1, h2, h3, h4, .display {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 700; /* Bolder headings for stark contrast */
   line-height: 1.15;
+  color: inherit;
+  text-decoration: none;
+  letter-spacing: -0.02em; /* Tight letter spacing is key for the tech aesthetic */
+}
+
+/* Specific adjustment for massive headlines to ensure they look sharp, not bulky */
+.stacked-headline {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 800; /* Extra bold for main hero text */
+  line-height: 0.95;
+  letter-spacing: -0.04em; /* Even tighter spacing for massive text */
+}
+
+.stacked-headline span {
+  display: block;
 }
 
 a {
@@ -216,12 +233,22 @@ ul { list-style: none; }
 }
 
 .page-hero {
-  padding: calc(var(--header-height) + 4rem) 0 4rem;
+  padding: 10rem 0 4rem; 
   text-align: center;
+  position: relative;
+  width: 100%;
 }
 
 .page-hero .stacked-headline {
   font-size: clamp(2.5rem, 7vw, 5rem);
+  margin-bottom: 1rem;
+}
+.page-hero .hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .app-bg {
@@ -351,4 +378,121 @@ ul { list-style: none; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* --- PHASE 2: MOBILE TYPOGRAPHY & SPACING FIXES --- */
+
+@media (max-width: 768px) {
+  /* 1. Scale down massive headlines */
+  .stacked-headline,
+  .page-hero .stacked-headline {
+    /* Reduces the minimum size from 3rem to 2.2rem so long words don't overflow */
+    font-size: clamp(2.2rem, 10vw, 3.5rem) !important; 
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    /* Bulletproof overflow prevention */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 8vw, 2.2rem) !important;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* 2. Tighten Global Whitespace */
+  .section {
+    padding: 3.5rem 0 !important; /* Reduced from default 5rem/6rem */
+  }
+
+  .container {
+    padding: 0 1.25rem; /* Slightly tighter edges on mobile */
+  }
+
+  /* 3. Compress the Hero Sections */
+  .page-hero {
+    /* Less dead space above and below the page titles */
+    padding: calc(var(--header-height, 80px) + 2rem) 0 2rem !important;
+  }
+
+  /* 4. Full-width buttons on mobile */
+  .btn, .btn-premium {
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* --- CLIENT OVERRIDE: BODY BACKGROUND & PURPLE TEXT --- */
+
+.bg-light {
+  background-color: #FAFAFA;
+}
+
+/* Ensure all heroes and dark sections ALWAYS have crisp white text */
+.page-hero,
+.page-hero h1,
+.page-hero h2,
+.page-hero .stacked-headline,
+.page-hero span,
+.page-hero p,
+.section--dark,
+.section--dark h1,
+.section--dark h2,
+.section--dark h3,
+.section--dark p,
+.section--dark span {
+  color: #FFFFFF !important;
+}
+
+/* Category kicker inside page-heroes */
+.page-hero .article-category,
+.page-hero .kicker {
+  color: var(--color-accent) !important; /* Vibrant Tech Purple */
+}
+
+/* Author & date metadata in heroes */
+.page-hero .article-meta,
+.page-hero .article-meta span {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.page-hero .article-meta strong,
+.page-hero .author-name {
+  color: #FFFFFF !important;
+}
+
+/* Update the Glass Cards (like Insights) so they stand out against the new background */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85) !important; /* Make cards slightly more opaque */
+  backdrop-filter: blur(16px);
+}
+
+/* --- HERO CONTRAST FIX --- */
+/* Protects dark hero sections from the .bg-light purple text override */
+.page-hero.bg-dark,
+.page-hero.bg-dark h1,
+.page-hero.bg-dark h2,
+.page-hero.bg-dark h3,
+.page-hero.bg-dark p,
+.page-hero.bg-dark span,
+.page-hero.bg-dark .author-name {
+  color: #FFFFFF !important;
+}
+
+/* Restore the vibrant Tech Purple specifically for the category kicker */
+.page-hero.bg-dark .article-category,
+.page-hero.bg-dark .kicker {
+  color: var(--color-accent) !important; 
+}
+
+/* Restore readability for the author/date metadata */
+.page-hero.bg-dark .article-meta,
+.page-hero.bg-dark .article-date,
+.page-hero.bg-dark .meta-divider {
+  color: rgba(255, 255, 255, 0.75) !important; 
 }

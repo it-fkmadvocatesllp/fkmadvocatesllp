@@ -14,7 +14,15 @@ const ContactPage = () => {
         description="Get in touch with FKM Advocates LLP. Visit our offices at Kenrail Towers, Parklands, Nairobi, or our Thika branch. Call +254 726 883 765 or email office@fkmadvocatesllp.com."
         canonical="/contact"
       />
-      <section className="page-hero">
+      <section 
+        className="page-hero"
+        style={{
+          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container reveal">
           <span className="kicker">Contact</span>
           <h1 className="stacked-headline">

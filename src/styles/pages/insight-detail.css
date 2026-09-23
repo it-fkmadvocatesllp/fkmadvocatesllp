@@ -1,0 +1,138 @@
+/* src/styles/pages/insight-detail.css */
+
+.insight-detail-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #F8FAFC;
+}
+
+/* Floating reading container overlapping the dark hero */
+.article-container {
+  max-width: 820px;
+  margin: -3rem auto 0;
+  position: relative;
+  z-index: 10;
+  padding: clamp(2rem, 5vw, 4rem);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+}
+
+/* --- ARTICLE BODY --- */
+.article-body {
+  margin-bottom: 3rem;
+}
+
+.article-body p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.article-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- SOCIAL SHARE ROW --- */
+.article-share {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.share-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-bg-dark);
+}
+
+.share-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: var(--color-text);
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  transition: all var(--transition, 0.2s ease);
+}
+
+.share-btn:hover {
+  background-color: var(--color-bg-dark);
+  color: #FFFFFF;
+  border-color: var(--color-bg-dark);
+  transform: translateY(-1px);
+}
+
+/* --- DISCLAIMER --- */
+.article-disclaimer {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-left: 3px solid var(--color-accent);
+  padding: 1.25rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin-bottom: 3rem;
+}
+
+.article-disclaimer strong {
+  color: var(--color-bg-dark);
+}
+
+/* --- FOOTER NAV --- */
+.article-footer-nav {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .article-container {
+    margin-top: -2rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+    padding: 2rem 1.25rem;
+  }
+
+  .article-share {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .share-buttons {
+    width: 100%;
+  }
+
+  .share-btn {
+    flex: 1;
+    text-align: center;
+  }
+}

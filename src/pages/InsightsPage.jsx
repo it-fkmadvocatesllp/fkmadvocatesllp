@@ -1,60 +1,100 @@
-import { Link } from 'react-router-dom';
+// src/pages/InsightsPage.jsx
 import { useState } from 'react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
-import { insights, insightCategories } from '../data/insights';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import { insights, insightCategories } from '../data/insights';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import '../components/sections/InsightsCarousel.css';
 
 const InsightsPage = () => {
-  const [category, setCategory] = useState('');
   const containerRef = useScrollReveal('.reveal');
+  const [activeCategory, setActiveCategory] = useState('All');
 
-  const filtered = category
-    ? insights.filter((item) => item.category === category)
-    : insights;
+  const filteredInsights = activeCategory === 'All' 
+    ? insights 
+    : insights.filter(item => item.category === activeCategory);
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className="bg-light" style={{ minHeight: '100vh', paddingBottom: '6rem' }}>
       <SEO
-        title="Legal Insights | Articles & Updates from Nairobi"
-        description="Read legal articles, press releases, and regulatory updates from FKM Advocates LLP. Stay informed on Kenyan law covering corporate governance, property, estate planning, and more."
+        title="Legal Insights & Updates | FKM Advocates LLP"
+        description="Discover the latest legal updates, firm news, and corporate governance insights from FKM Advocates LLP."
         canonical="/insights"
       />
-      <section className="page-hero">
+
+      {/* DARK HERO */}
+      <section 
+        className="page-hero"
+        style={{
+          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container reveal">
-          <span className="kicker">Insights</span>
-          <h1 className="stacked-headline">
-            <span>Legal</span>
-            <span>insights</span>
-          </h1>
-          <p className="section-subtitle" style={{ margin: '1.5rem auto 0' }}>
-            Discover the latest news and legal updates from FKM Advocates.
+          <span className="kicker">Knowledge Hub</span>
+          <div className="hero-headline-wrapper">
+            <h1 className="stacked-headline text-white" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
+              Legal Insights.
+            </h1>
+          </div>
+          <p className="hero-subtitle text-muted-on-dark" style={{ margin: '1.5rem auto 0', maxWidth: '600px' }}>
+            Discover the latest news, regulatory updates, and thought leadership from FKM Advocates.
           </p>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="reveal" style={{ display: 'flex', gap: '0.5rem', marginBottom: '2.5rem', flexWrap: 'wrap' }}>
-            <button type="button" className={`btn clickable ${!category ? 'btn--primary' : 'btn--outline'}`} onClick={() => setCategory('')}>All</button>
-            {insightCategories.map((cat) => (
-              <button key={cat} type="button" className={`btn clickable ${category === cat ? 'btn--primary' : 'btn--outline'}`} onClick={() => setCategory(cat)}>{cat}</button>
-            ))}
-          </div>
-
-          <div style={{ display: 'grid', gap: '1.5rem' }}>
-            {filtered.map((item) => (
-              <Link key={item.slug} to={`/insights/${item.slug}`} className="glass-card reveal clickable" style={{ padding: '2rem', display: 'block' }}>
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '0.75rem' }}>
-                  <span style={{ fontSize: '0.7rem', padding: '0.25rem 0.75rem', background: 'var(--color-bg)', borderRadius: '999px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{item.category}</span>
-                  <span style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>{item.readTime}</span>
-                </div>
-                <h3 style={{ fontSize: '1.35rem', marginBottom: '0.5rem' }}>{item.title}</h3>
-                <p style={{ color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{item.excerpt}</p>
-              </Link>
-            ))}
-          </div>
+      <div className="container reveal" style={{ marginTop: '4rem' }}>
+        
+        {/* FILTER NAVIGATION */}
+        <div style={{ display: 'flex', gap: '1rem', marginBottom: '3rem', flexWrap: 'wrap', borderBottom: '1px solid var(--color-border)', paddingBottom: '1rem' }}>
+          <button 
+            onClick={() => setActiveCategory('All')}
+            className="clickable"
+            style={{ 
+              background: 'none', border: 'none', fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em',
+              color: activeCategory === 'All' ? 'var(--color-accent)' : 'var(--color-text-muted)',
+              borderBottom: activeCategory === 'All' ? '2px solid var(--color-accent)' : '2px solid transparent',
+              paddingBottom: '0.5rem', marginBottom: '-1rem'
+            }}
+          >
+            All
+          </button>
+          {insightCategories.map(category => (
+            <button 
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className="clickable"
+              style={{ 
+                background: 'none', border: 'none', fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em',
+                color: activeCategory === category ? 'var(--color-accent)' : 'var(--color-text-muted)',
+                borderBottom: activeCategory === category ? '2px solid var(--color-accent)' : '2px solid transparent',
+                paddingBottom: '0.5rem', marginBottom: '-1rem'
+              }}
+            >
+              {category}
+            </button>
+          ))}
         </div>
-      </section>
+
+        {/* 4-COLUMN GRID (Reusing the Homepage component classes) */}
+        <div className="insights-grid">
+          {filteredInsights.map((post) => (
+            <Link key={post.slug} to={`/insights/${post.slug}`} className="insight-card clickable">
+              <div className="insight-card__image-wrapper">
+                <img src={post.image || '/hero_image.jpeg'} alt={post.title} loading="lazy" />
+              </div>
+              <div className="insight-card__content">
+                <span className="insight-card__category">{post.category || 'Articles'}</span>
+                <h3 className="insight-card__title">{post.title}</h3>
+                <span className="insight-card__link">Read Article &rarr;</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+      </div>
     </div>
   );
 };
