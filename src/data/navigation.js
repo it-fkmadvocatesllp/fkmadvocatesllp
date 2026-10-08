@@ -9,6 +9,7 @@ export const navItems = [
   { label: 'Your Team', to: '/team' },
   { label: 'Practice Areas', to: '/practice-areas', children: practiceAreaLinks },
   { label: 'Careers', to: '/careers' },
+  { label: 'About Us', to: '/about'}
 ];
 
 export const footerLinks = {

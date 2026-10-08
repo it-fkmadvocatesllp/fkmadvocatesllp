@@ -45,8 +45,8 @@ const ContactPage = () => {
 
             <div className="glass-card reveal" style={{ padding: '2.5rem' }}>
               <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: 'var(--color-accent)' }}>Thika Branch</h2>
-              <p style={{ marginBottom: '0.5rem' }}>Thika Business Center, 5th Floor</p>
-              <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>Suite 5-07, Commercial Street, Nairobi</p>
+              <p style={{ marginBottom: '0.5rem' }}>Muthithi Road, Westlands</p>
+              <p style={{ color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>Nairobi</p>
               <p><a href={`tel:${firmInfo.phone.replace(/\s/g, '')}`} className="clickable">{firmInfo.phone}</a></p>
             </div>
           </div>

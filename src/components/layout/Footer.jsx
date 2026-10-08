@@ -8,11 +8,11 @@ const Footer = () => (
     <div className="container">
       <div className="site-footer__grid">
         
-        {/* Column 1: Brand & Logo (With Text Restored) */}
+        {/* Column 1: Brand & Logo */}
         <div className="site-footer__brand">
           <Link to="/" className="site-logo clickable" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img 
-              src="/fkm-logo-light.png" /* Ensure this matches your logo filename */
+              src="/fkm-logo-light.png" 
               alt="FKM Logo" 
               style={{ height: '36px', width: 'auto', marginRight: '15px' }} 
             />
@@ -25,22 +25,27 @@ const Footer = () => (
               </span>
             </span>
           </Link>
+          <p style={{ color: 'var(--color-text-muted-on-dark)', fontSize: '0.85rem', lineHeight: '1.6', marginTop: '1.5rem', maxWidth: '280px' }}>
+            Advocacy with Integrity.<br/>Legal Excellence.
+          </p>
         </div>
 
-        {/* Column 2: Visit Our Offices */}
+        {/* Column 2: Visit Our Offices (Updated to Mitsumi Business Park) */}
         <div>
           <h4 className="site-footer__heading">Visit Our Offices</h4>
           <div className="site-footer__text-block">
             <p>
               <strong>Nairobi HQ</strong><br />
-              <a href="https://www.google.com/maps/search/?api=1&query=Kenrail+Towers,+Off+Parklands+Rd,+Nairobi" target="_blank" rel="noopener noreferrer" className="clickable" style={{ borderBottom: 'none' }}>
-                {firmInfo.address}<br />{firmInfo.addressDetail}
-              </a>
-            </p>
-            <p style={{ marginTop: '1.5rem' }}>
-              <strong>Thika Branch</strong><br />
-              <a href="https://www.google.com/maps/search/?api=1&query=Thika+Business+Center,+Commercial+Street,+Nairobi" target="_blank" rel="noopener noreferrer" className="clickable" style={{ borderBottom: 'none' }}>
-                {firmInfo.branch}
+              <a 
+                href="https://www.google.com/maps/place/Mitsumi+Business+Park/@-1.2699399,36.8086422,743m/data=!3m2!1e3!4b1!4m6!3m5!1s0x182f173c0122288b:0x65eb1dbcc5a3b689!8m2!3d-1.2699453!4d36.8112171!16s%2Fg%2F11c51r8y3n?entry=ttu&g_ep=EgoyMDI2MTAwNS4wIKXMDSoASAFQAw%3D%3D" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="clickable" 
+                style={{ borderBottom: 'none' }}
+              >
+                {firmInfo.addressLine1}<br />
+                {firmInfo.addressLine2}<br />
+                {firmInfo.addressLine3}
               </a>
             </p>
           </div>
@@ -60,7 +65,7 @@ const Footer = () => (
         </div>
       </div>
 
-      {/* Bottom Legal Bar - MOVED OUTSIDE THE GRID TO SPAN FULL WIDTH */}
+      {/* Bottom Legal Bar */}
       <div className="site-footer__bottom">
         <span>&copy; {new Date().getFullYear()} {firmInfo.name}. All rights reserved.</span>
         <div className="site-footer__legal">
