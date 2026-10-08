@@ -112,7 +112,7 @@ export const teamMembers = [
     ],
     practiceAreas: ['Banking & Finance', 'FinTech', 'Joint Ventures', 'Property Law'],
     education: ['Postgraduate Diploma in Law – Kenya School of Law', 'Bachelor of Laws (LL.B) – Kenyatta University', 'Certificate of Secondary Education – Limuru Girls School'],
-  }
+  },
   {id: 6,
     slug: 'naomi-wanjiru-wainaina',
     name: 'Naomi Wanjiru Wainaina',
