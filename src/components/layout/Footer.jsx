@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import { firmInfo } from '../../data/firmStats';
 import { footerLinks } from '../../data/navigation';
-import '../styles/global.css'; // Assuming basic styles are here
+import "src/styles/global.css";
 
 const Footer = () => {
   return (
