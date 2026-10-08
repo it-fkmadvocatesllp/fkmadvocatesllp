@@ -56,7 +56,7 @@ export const teamMembers = [
     name: 'Jane Waweru',
     title: 'Senior Associate',
     role: 'Senior Associate',
-    image: '/jane.jpeg', 
+    image: PERSON_PLACEHOLDER, 
     email: 'office@fkmadvocates.com',
     phone: '+254 728 343 053',
     linkedin: 'https://www.linkedin.com/in/wanjiru-waweru-24759b127/',
