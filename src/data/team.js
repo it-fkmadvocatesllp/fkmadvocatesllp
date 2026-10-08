@@ -15,7 +15,7 @@ export const teamMembers = [
     title: 'Managing Partner',
     role: 'Partner',
     image: '/mwichigi.jpeg', 
-    email: 'office@fkmadvocatesllp.com',
+    email: 'mwichigi@fkmadvocatesllp.com',
     phone: '+254 142 919 709',
     linkedin: 'https://www.linkedin.com/', 
     admissions: ['Advocate of the High Court of Kenya', 'Member, Law Society of Kenya (LSK)'],
@@ -36,7 +36,7 @@ export const teamMembers = [
     title: 'Partner', 
     role: 'Partner',
     image: PERSON_PLACEHOLDER, 
-    email: 'frednderitu@gmail.com',
+    email: 'nderitu@fkmadvocatesllp.com',
     phone: '+254 723 361 792',
     linkedin: 'https://www.linkedin.com/',
     admissions: ['Advocate of the High Court of Kenya', 'Member, Law Society of Kenya (LSK)'],
@@ -57,7 +57,7 @@ export const teamMembers = [
     title: 'Senior Associate',
     role: 'Senior Associate',
     image: '/jane.jpeg', 
-    email: 'shiwamuiru@gmail.com',
+    email: 'office@fkmadvocates.com',
     phone: '+254 728 343 053',
     linkedin: 'https://www.linkedin.com/in/wanjiru-waweru-24759b127/',
     admissions: ['Advocate of the High Court of Kenya', 'Member, Law Society of Kenya (LSK)', 'Member, Chartered Institute of Arbitrators (CIArb)'],
@@ -78,7 +78,7 @@ export const teamMembers = [
     title: 'Associate', 
     role: 'Associate',
     image: PERSON_PLACEHOLDER, 
-    email: 'angelagachugu023@gmail.com',
+    email: 'office@fkmadvocates.com',
     phone: '+254 720 436 023',
     linkedin: 'https://www.linkedin.com/',
     admissions: ['Advocate of the High Court of Kenya', 'Member, Law Society of Kenya (LSK)', 'Certified Professional Mediator (CPM-MTI)'],
@@ -113,6 +113,33 @@ export const teamMembers = [
     practiceAreas: ['Banking & Finance', 'FinTech', 'Joint Ventures', 'Property Law'],
     education: ['Postgraduate Diploma in Law – Kenya School of Law', 'Bachelor of Laws (LL.B) – Kenyatta University', 'Certificate of Secondary Education – Limuru Girls School'],
   }
+  {id: 6,
+    slug: 'naomi-wanjiru-wainaina',
+    name: 'Naomi Wanjiru Wainaina',
+    title: 'Legal Administrator',
+    role: 'Legal Admin',
+    // Make sure to add her image to the public/ folder with this exact name:
+    image: '/wainaina.jpeg', 
+    email: 'office@fkmadvocatesllp.com', // Placeholder
+    linkedin: 'https://www.linkedin.com/', // Placeholder
+    admissions: [
+      'Professional affiliations will be updated here.' // Placeholder
+    ],
+    strategy: ['Administration'],
+    office: 'Nairobi', // Placeholder
+    initials: 'NW',
+    bio: [
+      'Naomi Wanjiru Wainaina serves as the Legal Administrator at FKM Advocates LLP, ensuring smooth and efficient day-to-day operations across the firm.',
+      '[More detailed biography information will be updated here once provided.]'
+    ],
+    practiceAreas: [
+      'Firm Operations',
+      'Client Relations',
+      'Administrative Management'
+    ],
+    education: [
+      '[Degree Name] – [University Name]', // Placeholder
+    ],}
 ];
 
 export const getTeamMemberBySlug = (slug) => teamMembers.find((m) => m.slug === slug);

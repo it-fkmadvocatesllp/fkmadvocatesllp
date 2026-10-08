@@ -15,7 +15,15 @@ const AboutPage = () => {
       />
 
       {/* DARK HERO */}
-      <section className="page-hero bg-dark" style={{ backgroundColor: '#121212', paddingBottom: '6rem' }}>
+      <section 
+        className="page-hero"
+        style={{
+          background: `linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.9)), url('/hero_image.jpeg')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="container reveal">
           <span className="kicker" style={{ color: 'var(--color-accent)' }}>Advocacy with Integrity. Legal Excellence.</span>
           <div className="hero-headline-wrapper">

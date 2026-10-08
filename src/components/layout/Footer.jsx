@@ -3,60 +3,79 @@ import { Link } from 'react-router-dom';
 import { firmInfo } from '../../data/firmStats';
 import { footerLinks } from '../../data/navigation';
 
-const Footer = () => {
-  return (
-    <footer className="section--dark" style={{ backgroundColor: '#0A0A0A', padding: '4rem 0 2rem', borderTop: '4px solid var(--color-accent)' }}>
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
+const Footer = () => (
+  <footer className="site-footer" data-cursor-theme="dark">
+    <div className="container">
+      <div className="site-footer__grid">
         
-        {/* Brand */}
-        <div>
-          <img src="/fkm-logo-light.svg" alt="FKM Advocates LLP" style={{ width: '140px', marginBottom: '1rem' }} />
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', lineHeight: '1.6' }}>
+        {/* Column 1: Brand & Logo */}
+        <div className="site-footer__brand">
+          <Link to="/" className="site-logo clickable" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <img 
+              src="/fkm-logo-light.png" 
+              alt="FKM Logo" 
+              style={{ height: '36px', width: 'auto', marginRight: '15px' }} 
+            />
+            <span style={{ borderLeft: '1px solid var(--color-border-dark)', paddingLeft: '15px', display: 'flex', flexDirection: 'column' }}>
+              <span style={{ color: 'var(--color-text-on-dark)', fontSize: '1.1rem', fontWeight: '700', letterSpacing: '-0.01em' }}>
+                FKM Advocates LLP
+              </span>
+              <span style={{ color: 'var(--color-text-muted-on-dark)', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.15em', marginTop: '2px' }}>
+                Legal Excellence
+              </span>
+            </span>
+          </Link>
+          <p style={{ color: 'var(--color-text-muted-on-dark)', fontSize: '0.85rem', lineHeight: '1.6', marginTop: '1.5rem', maxWidth: '280px' }}>
             Advocacy with Integrity.<br/>Legal Excellence.
           </p>
         </div>
 
-        {/* Quick Links */}
+        {/* Column 2: Visit Our Offices (Updated to Mitsumi Business Park) */}
         <div>
-          <h4 style={{ color: '#FFF', marginBottom: '1.25rem', fontSize: '1rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Navigation</h4>
-          <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            <li><Link to="/about" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>About Us</Link></li>
-            <li><Link to="/team" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Your Team</Link></li>
-            <li><Link to="/practice-areas" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Practice Areas</Link></li>
-            <li><Link to="/insights" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>Insights & News</Link></li>
-          </ul>
+          <h4 className="site-footer__heading">Visit Our Offices</h4>
+          <div className="site-footer__text-block">
+            <p>
+              <strong>Nairobi HQ</strong><br />
+              <a 
+                href="https://www.google.com/maps/place/Mitsumi+Business+Park/@-1.2699399,36.8086422,743m/data=!3m2!1e3!4b1!4m6!3m5!1s0x182f173c0122288b:0x65eb1dbcc5a3b689!8m2!3d-1.2699453!4d36.8112171!16s%2Fg%2F11c51r8y3n?entry=ttu&g_ep=EgoyMDI2MTAwNS4wIKXMDSoASAFQAw%3D%3D" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="clickable" 
+                style={{ borderBottom: 'none' }}
+              >
+                {firmInfo.addressLine1}<br />
+                {firmInfo.addressLine2}<br />
+                {firmInfo.addressLine3}
+              </a>
+            </p>
+          </div>
         </div>
 
-        {/* Location Fix */}
+        {/* Column 3: Contact Us */}
         <div>
-          <h4 style={{ color: '#FFF', marginBottom: '1.25rem', fontSize: '1rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Visit Our Office</h4>
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '1rem' }}>
-            <strong>Nairobi HQ</strong><br />
-            {firmInfo.addressLine1}<br />
-            {firmInfo.addressLine2}<br />
-            {firmInfo.addressLine3}
-          </p>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <h4 style={{ color: '#FFF', marginBottom: '1.25rem', fontSize: '1rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Contact Us</h4>
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', lineHeight: '1.6' }}>
-            {firmInfo.email}<br />
-            {firmInfo.phone}
-          </p>
-        </div>
-
-      </div>
-      <div className="container" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem' }}>&copy; {new Date().getFullYear()} {firmInfo.name}. All rights reserved.</p>
-        <div style={{ display: 'flex', gap: '1.5rem' }}>
-          <Link to="#" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', textDecoration: 'none' }}>Privacy Policy</Link>
-          <Link to="#" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', textDecoration: 'none' }}>Legal Notice</Link>
+          <h4 className="site-footer__heading">Contact Us</h4>
+          <div className="site-footer__text-block">
+            <p>
+              <a href={`mailto:${firmInfo.email}`} className="clickable">{firmInfo.email}</a>
+            </p>
+            <p>
+              <a href={`tel:${firmInfo.phone.replace(/\s/g, '')}`} className="clickable">{firmInfo.phone}</a>
+            </p>
+          </div>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      {/* Bottom Legal Bar */}
+      <div className="site-footer__bottom">
+        <span>&copy; {new Date().getFullYear()} {firmInfo.name}. All rights reserved.</span>
+        <div className="site-footer__legal">
+          {footerLinks.legal.map((link) => (
+            <Link key={link.to} to={link.to} className="clickable">{link.label}</Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;
