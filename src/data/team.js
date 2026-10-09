@@ -29,7 +29,7 @@ export const teamMembers = [
     practiceAreas: ['Banking & Finance', 'Conveyancing & Real Estate', 'Mergers & Acquisitions', 'Construction Law'],
     education: ['Postgraduate Diploma in Law – Kenya School of Law', 'Bachelor of Laws (LL.B) – Kenyatta University'],
   },
-  {
+/*  {
     id: 2,
     slug: 'fredrick-nderitu',
     name: 'Fredrick Nderitu',
@@ -49,9 +49,9 @@ export const teamMembers = [
     ],
     practiceAreas: ['Criminal Law Prosecution', 'Complex Litigation', 'Environmental & Natural Resources Law'], 
     education: ['Master of Laws (LL.M.), Environmental & Natural Resources Law – University of Nairobi (Ongoing)', 'Postgraduate Diploma in Law – Kenya School of Law', 'Bachelor of Laws (LL.B) – Catholic University of Eastern Africa'],
-  },
+  },*/
   {
-    id: 3,
+    id: 2,
     slug: 'jane-waweru',
     name: 'Jane Waweru',
     title: 'Senior Associate',
@@ -72,7 +72,7 @@ export const teamMembers = [
     education: ['Postgraduate Diploma in Law – Kenya School of Law', 'Bachelor of Laws (LL.B) – Catholic University of Eastern Africa', 'Mediation Training – Mediation Training Institute (2019)'],
   },
   {
-    id: 4,
+    id: 3,
     slug: 'angela-gachugu',
     name: 'Angela Gachugu',
     title: 'Associate', 
@@ -93,9 +93,9 @@ export const teamMembers = [
     education: ['Postgraduate Diploma in Law – Kenya School of Law', 'Bachelor of Laws (LL.B) – University of Nairobi (2018)', 'Data Protection Course – Strathmore University (2023)', 'Mediation Refresher Training – FIDA Kenya'],
   },
   {
-    id: 5,
-    slug: 'sandra-cherotich',
-    name: 'Sandra Cherotich',
+    id: 4,
+    slug: 'sandra-kimetto',
+    name: 'Sandra Kimetto',
     title: 'Senior Associate', 
     role: 'Senior Associate',
     image: PERSON_PLACEHOLDER, 
@@ -106,14 +106,14 @@ export const teamMembers = [
     strategy: ['Banking & Finance', 'Real Estate & Conveyancing', 'Corporate & Commercial'], 
     office: 'Nairobi',
     bio: [
-      'Sandra Cherotich is a Senior Associate in the Banking & Finance, Conveyancing & Real Estate Department and specialises in property law, banking, finance, fintech, joint ventures, company law, and general commercial transactions.',
+      'Sandra Kimetto is a Senior Associate in the Banking & Finance, Conveyancing & Real Estate Department and specialises in property law, banking, finance, fintech, joint ventures, company law, and general commercial transactions.',
       'She has advised clients in the banking and healthcare sectors on security documentation, commercial and residential leases, and licenses.',
       'Sandra was a key part of the team that advised a leading FinTech firm on its application for authorisation to provide payment services by the Central Bank of Kenya. She is a team player committed to learning, excellence, and ethics.'
     ],
     practiceAreas: ['Banking & Finance', 'FinTech', 'Joint Ventures', 'Property Law'],
-    education: ['Postgraduate Diploma in Law – Kenya School of Law', 'Bachelor of Laws (LL.B) – Kenyatta University', 'Certificate of Secondary Education – Limuru Girls School'],
+    education: ['Postgraduate Diploma in Law – Kenya School of Law', 'Bachelor of Laws (LL.B) – Kenyatta University'],
   },
-  {id: 6,
+  {id: 5,
     slug: 'naomi-wanjiru-wainaina',
     name: 'Naomi Wanjiru Wainaina',
     title: 'Legal Administrator',
